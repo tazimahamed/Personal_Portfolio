@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Md. Tazim Ahamed | Portfolio</title>
+
+<link rel="stylesheet" href="style/portfolio.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="container">
+
+<div class="logo">
+      <span>TAZIM</span>
+    </div>
+
+<ul class="nav-menu">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<button class="nav-cta" onclick="downloadResume()">
+<i class="fas fa-download"></i> Resume
+</button>
+
+</div>
+
+</nav>
+
+<main>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Md. Tazim Ahamed</h1>
+                    <p>
+                        Computer Science & Engineering student specializing in Machine Learning, 
+                        Computer Vision, and Natural Language Processing, driven by a passion for 
+                        building intelligent and impactful AI solutions.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                            Contact Me
+                        </button>
+                        <button class="btn btn-secondary" onclick="downloadResume()">
+                            Download CV
+                        </button>
+                    </div>
+
+                    <div class="hero-social">
+                        <a href="https://www.facebook.com/share/1CatbUk8AU/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/taz_imahamed?igsh=cGtsMnI4eHo2bXp2&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/tazimahamed"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/md-tazim-0380983b4"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <div class="profile-inner">
+                            <img src="images/picture.jpg" alt="Tazim" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="video-section">
+      <div class="video-content">
+        
+        <div class="video-frame" id="videoContainer" onclick="playVideo()">
+          <div class="video-placeholder" id="placeholder">
+            <span>▶</span>
+            <p style="font-size: 1rem; margin-top: 10px;">Click to Play Project Demo</p>
+          </div>
+        </div>
+
+        <div class="video-text">
+          <h3>Computer Science & Engineering Student</h3>
+          <p class="about-text">
+            I am a Computer Science and Engineering student at American International University-Bangladesh.
+            My work focuses on Machine Learning, Deep Learning, Computer Vision, and IoT systems.
+          </p>
+          <p class="about-text">
+            I enjoy building intelligent systems that solve real-world problems,
+            including traffic sign detection, agricultural marketplaces,
+            and environmental monitoring systems.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<h3>Programming</h3>
+
+<p>Python, C, C++, Java, JavaScript, Dart, PHP, SQL</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>AI & Machine Learning</h3>
+
+<p>TensorFlow, PyTorch, scikit-learn, Keras, OpenCV, Mediapipe</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Data Tools</h3>
+
+<p>NumPy, Pandas, Matplotlib, Seaborn</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Web Development</h3>
+
+<p>HTML, CSS, Bootstrap, Tailwind, PHP</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Tools</h3>
+
+<p>Git, GitHub, VS Code, Kaggle, Google Colab</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Project -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container">
+                    <div class="image-slider">
+                        <img src="images/agro1.jpg" class="active" alt="AgroLink 1">
+                        <img src="images/agro2.jpg" alt="AgroLink 2">
+                        <img src="images/agro3.jpg" alt="AgroLink 3">
+                    </div>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">AgroLink – Agricultural Marketplace</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>A web platform connecting farmers and customers to buy and sell agricultural products. Built with HTML, CSS, JavaScript, PHP, SQL, AJAX, and JSON.</p>
+                    <a href="https://github.com/HasiburRahman404/AgroLink"
+                       target="_blank"
+                       class="visit-link">
+                        <span class="visit-icon">🌐</span>
+                        Visit Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container">
+                    <div class="image-slider">
+                        <img src="images/soil1.jpg" class="active" alt="Soil Health 1">
+                        <img src="images/soil2.jpg" alt="Soil Health 2">
+                    </div>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">Solar Powered Soil Health Monitor</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>IoT system using ESP8266 and sensors to monitor soil moisture, temperature, and humidity with real-time cloud data.</p>
+    
+            
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container">
+                    <div class="image-slider">
+                        <img src="images/station1.jpg" class="active" alt="Railway 1">
+                        <img src="images/station2.jpg" alt="Railway 2">
+                    </div>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">Railway Station Scene</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>3D railway station environment built using C++ and OpenGL. Includes platforms, tracks, roads, and environmental objects.</p>
+                
+                <a href="https://github.com/tazimahamed/Graphics_project"
+                       target="_blank"
+                       class="visit-link">
+                        <span class="visit-icon">🌐</span>
+                        Visit Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container">
+                    <div class="image-slider">
+                        <img src="images/taylor1.jpg" class="active" alt="Taylor 1">
+                        <img src="images/taylor2.jpg" alt="Taylor 2">
+                    </div>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">Taylor – Online Dress Store</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>E-commerce system developed using Java, C#, and SQL with product catalog, shopping cart, and secure checkout.</p>
+                
+                    <a href="https://github.com/tazimahamed/C-_project"
+                       target="_blank"
+                       class="visit-link">
+                        <span class="visit-icon">🌐</span>
+                        Visit Website
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education" class="education-section">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content 3d-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+                    <h4>B.Sc in Computer Science & Engineering</h4>
+                    <span class="period">2023 – Present</span>
+                    <p>American International University-Bangladesh</p>
+                    <div class="gpa-badge">CGPA: 3.72</div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content 3d-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <h4>Higher Secondary Certificate</h4>
+                    <span class="period">Cantonment College Jashore</span>
+                    <div class="gpa-badge">GPA: 5.00</div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content 3d-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                    <h4>Secondary School Certificate</h4>
+                    <span class="period">Benapole High School</span>
+                    <div class="gpa-badge">GPA: 5.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <p>Email</p>
+                        <a href="mailto:mtazim.j@gmail.com">mtazim.j@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <p>Phone</p>
+                        <a href="tel:+8801703625500">+8801703625500</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fab fa-github"></i></div>
+                    <div>
+                        <p>GitHub</p>
+                        <a href="https://github.com/tazimahamed" target="_blank">tazimahamed</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fab fa-linkedin"></i></div>
+                    <div>
+                        <p>LinkedIn</p>
+                        <a href="https://linkedin.com/in/md-tazim-0380983b4" target="_blank">Md Tazim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+
+<footer>
+
+<p>© 2026 Md. Tazim Ahamed</p>
+
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+
+
+<script src="portfolio.js"></script>
+
+</body>
+</html>
