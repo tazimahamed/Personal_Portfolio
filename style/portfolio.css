@@ -874,3 +874,71 @@ footer { padding: 2.2rem 0; }
     }
     .js .reveal, .js [data-enter] { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+.edu-list { display: flex; flex-direction: column; gap: 1.1rem; }
+
+.edu-card {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 2.2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    transition: transform .5s var(--ease), box-shadow .5s, border-color .5s;
+}
+.edu-card:hover { box-shadow: var(--shadow); border-color: transparent; }
+.js .edu-card.reveal.is-visible:hover { transform: translateX(6px); }
+
+.edu-years {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+.edu-years span {
+    display: block;
+    margin-top: .45rem;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--faint);
+}
+.edu-years span::before { content: '\2192  '; color: var(--accent); }
+
+.edu-main h3 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+.edu-school { margin-top: .25rem; color: var(--muted); font-weight: 500; }
+.edu-course { margin-top: 1rem; font-size: .92rem; color: var(--muted); max-width: 680px; }
+.edu-course strong { color: var(--ink); }
+
+.edu-score {
+    min-width: 110px;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    background: var(--bg);
+    border-radius: 18px;
+}
+.edu-score span { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; color: var(--faint); }
+.edu-score strong { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; }
+
+/* University card stands out in black */
+.edu-card.featured { color: #fff; background: var(--navy); border-color: var(--navy); }
+.edu-card.featured .edu-school, .edu-card.featured .edu-course { color: #cbcbcb; }
+.edu-card.featured .edu-course strong { color: #fff; }
+.edu-card.featured .edu-years span { color: #9a9a9a; }
+.edu-card.featured .edu-score { background: var(--accent); }
+.edu-card.featured .edu-score span { color: rgba(255, 255, 255, .8); }
+
+@media (max-width: 760px) {
+    .edu-card { grid-template-columns: 1fr auto; grid-template-areas: "years score" "main main"; gap: 1.1rem 1rem; padding: 1.6rem; }
+    .edu-years { grid-area: years; font-size: 1.7rem; display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+    .edu-main { grid-area: main; }
+    .edu-score { grid-area: score; }
+    .edu-years span { margin-top: 0; }
+    .edu-score { min-width: 88px; padding: .8rem; }
+    .edu-score strong { font-size: 1.6rem; }
+}

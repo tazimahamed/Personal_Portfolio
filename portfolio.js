@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const groups = [
         ".section-head", ".about-copy", ".about-video", ".journey-head",
         ".pick", ".more-head", ".more-grid .mini", ".paper, .award",
-        ".skill-groups .skill-group", ".contact-card"
+        ".skill-groups .skill-group", ".edu-list .edu-card", ".contact-card"
     ];
     groups.forEach(sel => {
         document.querySelectorAll(sel).forEach((el, idx) => {
