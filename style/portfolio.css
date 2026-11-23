@@ -1203,3 +1203,9 @@ footer {
     }
 }
 
+
+/* Projects without screenshots */
+.project-placeholder { display: flex; align-items: center; justify-content: center; }
+.project-placeholder.edu-bg { background: linear-gradient(135deg, #1e3a8a, #7c3aed); }
+.project-placeholder.menu-bg { background: linear-gradient(135deg, #065f46, #0ea5e9); }
+.placeholder-icon { font-size: 4.5rem; color: rgba(255, 255, 255, 0.85); }

@@ -106,8 +106,8 @@
           </p>
           <p class="about-text">
             I enjoy building intelligent systems that solve real-world problems,
-            including traffic sign detection, agricultural marketplaces,
-            and environmental monitoring systems.
+            including traffic sign detection, a Bengali AI tutor, agricultural marketplaces,
+            IoT robotics, and environmental monitoring systems.
           </p>
         </div>
 
@@ -180,6 +180,36 @@
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
             
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container project-placeholder edu-bg">
+                    <i class="fas fa-graduation-cap placeholder-icon"></i>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">EduTutor BD – Bengali AI Tutor</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Full-stack Bengali AI tutoring platform for SSC students using RAG over NCTB textbooks (2,768 chunks in ChromaDB) and Bloom's Taxonomy-based adaptive questioning. LLaMA 3.3 70B via Groq generates and evaluates questions with Bengali feedback in under 2 seconds. Built with Python, FastAPI, Gemini Embeddings, PHP and MySQL.</p>
+                    <a href="https://github.com/tazimahamed/EduTutor"
+                       target="_blank"
+                       class="visit-link">
+                        <span class="visit-icon">🌐</span>
+                        Visit Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-image-container project-placeholder menu-bg">
+                    <i class="fas fa-robot placeholder-icon"></i>
+                    <div class="image-overlay">
+                        <h3 class="project-title-overlay">Beyond the Menu – RFID Ordering &amp; Delivery Robot</h3>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <p>Restaurant ordering system where diners order by tapping RFID cards, with no app, touchscreen or waiter needed. Two ESP32 terminals and an ESP32 delivery car talk over MQTT to a Python/Tkinter kitchen dashboard with live order status, presence detection and a kitchen watchdog.</p>
+                </div>
+            </div>
+
             <div class="project-card" onclick="toggleProject(this)">
                 <div class="project-image-container">
                     <div class="image-slider">
@@ -280,7 +310,7 @@
                     <h4>B.Sc in Computer Science & Engineering</h4>
                     <span class="period">2023 – Present</span>
                     <p>American International University-Bangladesh</p>
-                    <div class="gpa-badge">CGPA: 3.72</div>
+                    <div class="gpa-badge">CGPA: 3.74</div>
                 </div>
             </div>
 

@@ -49,7 +49,7 @@ function playVideo() {
 // Your existing functions
 function downloadResume() {
     const link = document.createElement("a");
-    link.href = "Tazim_Ahamed.pdf";
+    link.href = "images/Tazim_Ahamed.pdf";
     link.download = "Tazim_Ahamed_Resume.pdf";
     document.body.appendChild(link);
     link.click();
