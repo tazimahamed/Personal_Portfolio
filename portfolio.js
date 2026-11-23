@@ -145,48 +145,8 @@ e.stopPropagation();
 
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themes = [
-        {
-            '--bg-main': '#0f172a',
-            '--glow-1': 'rgba(139, 92, 246, 0.3)',
-            '--glow-2': 'rgba(59, 130, 246, 0.3)'
-        },
-        {
-            '--bg-main': '#064e3b', // Deep Emerald
-            '--glow-1': 'rgba(16, 185, 129, 0.3)',
-            '--glow-2': 'rgba(5, 150, 105, 0.3)'
-        },
-        {
-            '--bg-main': '#4c1d95', // Deep Royal Purple
-            '--glow-1': 'rgba(236, 72, 153, 0.3)',
-            '--glow-2': 'rgba(139, 92, 246, 0.3)'
-        }
-    ];
 
-    let currentThemeIndex = 0;
 
-    function changeTheme() {
-        const theme = themes[currentThemeIndex];
-        const root = document.documentElement;
-
-        // Gradually update each variable
-        Object.keys(theme).forEach(key => {
-            root.style.setProperty(key, theme[key]);
-        });
-
-        // Move to next theme
-        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-    }
-
-    // Change theme every 5 seconds
-    setInterval(changeTheme, 5000);
-
-    // Initialize on load
-    changeTheme();
-});
-
-// à¦¸à§à¦•à§à¦°à¦² à¦•à¦°à¦²à§‡ à¦•à¦¨à§à¦Ÿà¦¾à¦•à§à¦Ÿ à¦†à¦‡à¦Ÿà§‡à¦®à¦—à§à¦²à§‹ à¦à¦•à¦Ÿà¦¾ à¦à¦•à¦Ÿà¦¾ à¦•à¦°à§‡ à¦­à§‡à¦¸à§‡ à¦‰à¦ à¦¬à§‡
 const observerOptions = { threshold: 0.2 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
