@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=20">
+<link rel="stylesheet" href="style/portfolio.css?v=21">
 </head>
 
 <body>
@@ -163,22 +163,23 @@
 <section id="journey" class="section journey">
     <div class="container">
         <div class="journey-head reveal">
-            <p class="eyebrow light">My journey</p>
-            <h2 class="big-heading light">Let's go back in time.</h2>
+            <p class="eyebrow">My journey</p>
+            <h2 class="big-heading">Let's go back in time.</h2>
         </div>
-        <p class="journey-hint"><i class="fas fa-hand-pointer"></i>Tap any milestone to see the details.</p>
+        <p class="journey-hint"><i class="fas fa-hand-pointer"></i>Tap any milestone to read the story behind it.</p>
 
         <div class="journey-grid">
-            <div class="year-display" aria-hidden="true">
-                <div class="year-window"><span class="year-current">2026</span></div>
-                <div class="year-bar"><span></span></div>
+            <div class="year-display">
+                <div class="year-window" aria-hidden="true"><span class="year-current">2026</span></div>
+                <div class="year-bar" aria-hidden="true"><span></span></div>
+                <div class="year-chips" role="navigation" aria-label="Jump to a year"></div>
             </div>
 
             <div class="journey-list">
-                <article class="j-item" data-year="2026" tabindex="0" role="button" aria-expanded="false">
+                <article class="j-item" data-kind="exp" data-year="2026" tabindex="0" role="button" aria-expanded="false">
                     <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2026</span>
-                    <span class="j-tag">Experience</span>
+                    <span class="j-tag"><i class="fas fa-briefcase"></i> Experience</span>
                     <h3>Software Intern, Square InformatiX Ltd.</h3>
                     <p class="j-meta">Software Department · Oct – Dec 2026 · Mohakhali, Dhaka</p>
                     <p>Working with the IT company of SQUARE Group under the guidance of a Senior Analyst Programmer, contributing to real-world software in an ISO 9001:2015 certified environment.</p>
@@ -187,10 +188,10 @@
                     </div></div>
                 </article>
 
-                <article class="j-item" data-year="2026" tabindex="0" role="button" aria-expanded="false">
+                <article class="j-item" data-kind="award" data-year="2026" tabindex="0" role="button" aria-expanded="false">
                     <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2026</span>
-                    <span class="j-tag gold">Achievement</span>
+                    <span class="j-tag gold"><i class="fas fa-trophy"></i> Achievement</span>
                     <h3>EduTutor BD reaches the Final Round of The Infinity AI BuildFest 2026</h3>
                     <p class="j-meta">CloudCamp Bangladesh × BRAC University</p>
                     <p>My Bengali AI tutor, EduTutor BD, was selected for the final round of this national AI build competition.</p>
@@ -199,10 +200,10 @@
                     </div></div>
                 </article>
 
-                <article class="j-item" data-year="2025" tabindex="0" role="button" aria-expanded="false">
+                <article class="j-item" data-kind="research" data-year="2025" tabindex="0" role="button" aria-expanded="false">
                     <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2025</span>
-                    <span class="j-tag">Projects &amp; Research</span>
+                    <span class="j-tag"><i class="fas fa-flask"></i> Projects &amp; Research</span>
                     <h3>EduTutor BD, Beyond the Menu &amp; low-light detection research</h3>
                     <p class="j-meta">LLaMA 3.3 70B · RAG · ESP32 · MQTT · YOLOv8m</p>
                     <p>Built a Bengali AI tutor and a tangible RFID ordering robot, and wrote a paper improving traffic sign detection at night with Zero-DCE++ and YOLOv8m.</p>
@@ -211,10 +212,10 @@
                     </div></div>
                 </article>
 
-                <article class="j-item" data-year="2024" tabindex="0" role="button" aria-expanded="false">
+                <article class="j-item" data-kind="project" data-year="2024" tabindex="0" role="button" aria-expanded="false">
                     <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2024</span>
-                    <span class="j-tag">Projects</span>
+                    <span class="j-tag"><i class="fas fa-layer-group"></i> Projects</span>
                     <h3>AgroLink, Soil Health Monitor &amp; more</h3>
                     <p class="j-meta">PHP · AJAX · ESP8266 · ThingSpeak · OpenGL · Digital Logic</p>
                     <p>Shipped a farmer-to-customer marketplace, a solar-powered IoT soil monitor, an OpenGL railway scene, and a 4-way traffic signal controller on hardware.</p>
@@ -223,10 +224,10 @@
                     </div></div>
                 </article>
 
-                <article class="j-item" data-year="2023" tabindex="0" role="button" aria-expanded="false">
+                <article class="j-item" data-kind="first" data-year="2023" tabindex="0" role="button" aria-expanded="false">
                     <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2023</span>
-                    <span class="j-tag">Project</span>
+                    <span class="j-tag"><i class="fas fa-cube"></i> Project</span>
                     <h3>Taylor, Online Dress Store</h3>
                     <p class="j-meta">Java · C# · SQL</p>
                     <p>My first full application: an e-commerce system for men's and women's clothing with a product catalog, shopping cart and secure checkout.</p>
@@ -656,6 +657,7 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=20"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="portfolio.js?v=21" defer></script>
 </body>
 </html>

@@ -1837,3 +1837,163 @@ nav.scrolled {
 }
 .c-location .c-value { white-space: nowrap; }
 
+/* =========================================================
+   JOURNEY — light timeline
+   ========================================================= */
+.journey {
+    color: var(--ink);
+    background:
+        radial-gradient(700px 420px at 100% 0%, rgba(224, 53, 60, .08), transparent 65%),
+        radial-gradient(700px 480px at 0% 100%, rgba(72, 160, 118, .14), transparent 65%),
+        linear-gradient(165deg, #f5f8f3 0%, #e9efe7 55%, #e7eef5 100%);
+    border: 1px solid #dce5dd;
+}
+.journey .eyebrow { color: var(--accent); }
+.journey .big-heading { color: var(--ink); }
+.journey-hint { color: var(--muted); }
+.journey-hint i { color: var(--accent); }
+
+/* kind colours */
+.j-item { --kc: #2f7d5b; --kc-soft: rgba(47, 125, 91, .10); }
+.j-item[data-kind="exp"]      { --kc: #e0353c; --kc-soft: rgba(224, 53, 60, .10); }
+.j-item[data-kind="award"]    { --kc: #c27a12; --kc-soft: rgba(194, 122, 18, .12); }
+.j-item[data-kind="research"] { --kc: #3157c8; --kc-soft: rgba(49, 87, 200, .10); }
+.j-item[data-kind="project"]  { --kc: #2f7d5b; --kc-soft: rgba(47, 125, 91, .10); }
+.j-item[data-kind="first"]    { --kc: #7a4fc2; --kc-soft: rgba(122, 79, 194, .10); }
+
+/* big year: forest into red */
+.year-current {
+    background: linear-gradient(180deg, #1c3026 35%, #2f7d5b 115%);
+    -webkit-background-clip: text; background-clip: text;
+}
+.year-bar { background: #dbe4dc; }
+.year-bar span { background: linear-gradient(90deg, var(--accent), #48a076); }
+
+/* year shortcuts */
+.year-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+.year-chip {
+    padding: .45rem .95rem;
+    font: 600 .88rem var(--sans);
+    color: var(--muted);
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid #d7e1d8;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease);
+}
+.year-chip:hover { color: var(--ink); border-color: #b9c8bd; transform: translateY(-2px); }
+.year-chip.active { color: #fff; background: var(--ink); border-color: var(--ink); }
+.year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* timeline rail with a fill that follows the scroll */
+.journey-list { position: relative; padding-left: 2.6rem; gap: 1.1rem; }
+.journey-list::before, .journey-list::after {
+    content: '';
+    position: absolute;
+    left: .7rem; top: .6rem; bottom: .6rem;
+    width: 2px;
+    border-radius: 2px;
+}
+.journey-list::before { background: #d7e1d8; }
+.journey-list::after {
+    bottom: auto;
+    height: calc((100% - 1.2rem) * var(--jp, 0));
+    background: linear-gradient(180deg, var(--accent), #48a076);
+}
+
+/* cards */
+.j-item {
+    background: #ffffff;
+    border: 1px solid #e3eae4;
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(12, 21, 16, .04), 0 12px 28px -22px rgba(12, 21, 16, .4);
+    opacity: .62;
+    transform: scale(.985);
+    transition: opacity .5s var(--ease), transform .6s var(--ease), box-shadow .5s, border-color .5s;
+}
+.j-item:hover { opacity: .9; border-color: color-mix(in srgb, var(--kc) 30%, #ffffff); }
+.j-item.current, .j-item.open {
+    opacity: 1;
+    transform: none;
+    background: #ffffff;
+    border-color: color-mix(in srgb, var(--kc) 40%, #ffffff);
+    box-shadow: 0 2px 4px rgba(12, 21, 16, .04), 0 22px 44px -26px color-mix(in srgb, var(--kc) 60%, transparent);
+}
+/* coloured edge */
+.j-item::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 1.2rem; bottom: 1.2rem;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--kc);
+    transform: scaleY(.3);
+    opacity: .5;
+    transition: transform .6s var(--ease), opacity .4s;
+}
+.j-item.current::after, .j-item.open::after { transform: scaleY(1); opacity: 1; }
+
+/* timeline dot for each card */
+.j-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2.6rem + .7rem - 7px + 1px);
+    top: 1.9rem;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #c4d1c7;
+    box-sizing: border-box;
+    transition: background .4s, border-color .4s, box-shadow .4s, transform .4s var(--ease);
+}
+.j-item.current::before, .j-item.open::before {
+    background: var(--kc);
+    border-color: var(--kc);
+    transform: scale(1.15);
+    animation: dot-pulse 2.2s ease-out infinite;
+}
+@keyframes dot-pulse {
+    0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--kc) 45%, transparent); }
+    100% { box-shadow: 0 0 0 12px transparent; }
+}
+
+.j-tag { display: inline-flex; align-items: center; gap: .4rem; color: var(--kc); background: var(--kc-soft); }
+.j-tag.gold { color: var(--kc); background: var(--kc-soft); }
+.j-tag i { font-size: .68rem; }
+.j-item h3 { color: var(--ink); }
+.j-meta { color: var(--faint); }
+.j-item p:not(.j-meta) { color: var(--muted); }
+.j-year-mobile { color: var(--ink); }
+
+.j-toggle { color: var(--ink); border-color: #d7e1d8; background: #ffffff; }
+.j-item:hover .j-toggle { border-color: var(--kc); color: var(--kc); }
+.j-item.open .j-toggle { background: var(--kc); border-color: var(--kc); color: #fff; }
+.j-item:focus-visible { outline: 2px solid var(--kc); outline-offset: 3px; }
+
+.j-story { color: var(--ink-2) !important; }
+.j-story::before { background: linear-gradient(90deg, var(--kc), transparent); }
+.j-story::first-letter { color: var(--kc); }
+
+/* cards glide in from the right as they reach the screen */
+.js .j-item:not(.j-in) { opacity: 0; transform: translateX(46px); }
+.js .j-item.j-in { transition-delay: 0s; }
+
+@media (max-width: 900px) {
+    .journey { margin: 0 .5rem; }
+    .journey-list { padding-left: 2.1rem; }
+    .journey-list::before, .journey-list::after { left: .45rem; }
+    .j-item::before { left: calc(-2.1rem + .45rem - 7px + 1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .j-item:not(.j-in) { opacity: 1; transform: none; }
+    .j-item.current::before { animation: none; }
+}
+/* =========================================================
+   SMOOTH SCROLL (Lenis) + compositor hints — no visual change
+   ========================================================= */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+.hero::before, .hero::after { will-change: opacity; }
+.photo-card { will-change: transform; }

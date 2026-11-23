@@ -31,6 +31,27 @@ window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    /* Buttery smooth scrolling (skipped for reduced motion; touch keeps native scrolling) */
+    if (!reduceMotion && typeof window.Lenis === "function") {
+        const lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 1 });
+        window.__lenis = lenis;
+        const raf = time => { lenis.raf(time); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+
+        /* in-page links glide with the same easing */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener("click", e => {
+                const id = a.getAttribute("href");
+                if (id.length < 2) return;
+                const target = document.querySelector(id);
+                if (!target) return;
+                e.preventDefault();
+                lenis.scrollTo(target, { offset: id === "#home" ? 0 : -76, duration: 1.2 });
+                history.replaceState(null, "", id);
+            });
+        });
+    }
+
     /* Pause looping CSS animations in sections that are off screen */
     const loopZones = document.querySelectorAll("section, .marquee, footer");
     const zoneObserver = new IntersectionObserver(entries => {
@@ -135,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const keepInView = () => {
             const top = stage.getBoundingClientRect().top;
             if (top < 70 || top > window.innerHeight * 0.45) {
-                window.scrollTo({ top: top + window.scrollY - 110, behavior: reduceMotion ? "auto" : "smooth" });
+                if (window.__lenis) window.__lenis.scrollTo(top + window.scrollY - 110, { duration: 1 }); else window.scrollTo({ top: top + window.scrollY - 110, behavior: reduceMotion ? "auto" : "smooth" });
             }
         };
 
@@ -208,9 +229,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const journeyList = document.querySelector(".journey-list");
     let shownYear = yearEl ? yearEl.textContent : "";
 
+    /* Year shortcuts: one chip per year, jumps to that year's first milestone */
+    const chipWrap = document.querySelector(".year-chips");
+    const chips = [];
+    if (chipWrap) {
+        [...new Set(items.map(it => it.dataset.year))].forEach(year => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "year-chip" + (year === shownYear ? " active" : "");
+            b.textContent = year;
+            b.setAttribute("aria-label", `Jump to ${year}`);
+            b.addEventListener("click", () => {
+                const target = items.find(it => it.dataset.year === year);
+                if (!target) return;
+                const top = target.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.3;
+                if (window.__lenis) window.__lenis.scrollTo(top, { duration: 1.1 });
+                else window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+            });
+            chipWrap.appendChild(b);
+            chips.push(b);
+        });
+    }
+
+    /* Milestones glide in as they reach the screen */
+    const itemIn = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("j-in");
+            itemIn.unobserve(e.target);
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    items.forEach(it => itemIn.observe(it));
+
     const setYear = year => {
         if (!yearEl || year === shownYear) return;
         shownYear = year;
+        chips.forEach(c => c.classList.toggle("active", c.textContent === year));
         yearEl.classList.add("out-up");
         setTimeout(() => {
             yearEl.textContent = year;
@@ -276,7 +330,11 @@ document.addEventListener("DOMContentLoaded", () => {
             setYear(current.dataset.year);
             lastCurrent = current;
         }
-        if (jp !== null && jp !== lastJp) { yearBar.style.setProperty("--jp", jp); lastJp = jp; }
+        if (jp !== null && jp !== lastJp) {
+            yearBar.style.setProperty("--jp", jp);
+            journeyList.style.setProperty("--jp", jp);
+            lastJp = jp;
+        }
 
         if (active !== lastActive) {
             navLinks.forEach(a => a.classList.toggle("active", !!active && a.getAttribute("href") === `#${active.id}`));
