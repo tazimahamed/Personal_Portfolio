@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const groups = [
         ".section-head", ".about-copy", ".about-side", ".journey-head",
         ".pick", ".more-head", ".more-grid .mini", ".paper, .award",
-        ".edu-list .edu-card", ".contact-card"
+        ".edu-wrap .edu-uni", ".edu-schools .edu-mini", ".contact-card"
     ];
     groups.forEach(sel => {
         document.querySelectorAll(sel).forEach((el, idx) => {
@@ -139,7 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
             countObserver.unobserve(el);
         });
     }, { threshold: 0.6 });
-    document.querySelectorAll(".stat-num").forEach(el => countObserver.observe(el));
+    document.querySelectorAll(".stat-num, .ring-num").forEach(el => countObserver.observe(el));
+
+    /* Education rings fill when they reach the screen */
+    const ringObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("ring-in");
+            ringObserver.unobserve(e.target);
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll(".edu-ring").forEach(r => ringObserver.observe(r));
     /* Skills doors: pick one to step inside */
     const stage = document.querySelector(".door-stage");
     if (stage) {

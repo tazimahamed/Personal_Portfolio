@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=22">
+<link rel="stylesheet" href="style/portfolio.css?v=23">
 </head>
 
 <body>
@@ -416,44 +416,76 @@
 </section>
 
 <!-- ================= EDUCATION ================= -->
-<section id="education" class="section">
+<section id="education" class="section education">
     <div class="container">
         <div class="section-head reveal">
             <p class="eyebrow">Education</p>
             <h2 class="big-heading">Where I learned.</h2>
         </div>
 
-        <div class="edu-list">
-            <article class="edu-card featured reveal">
-                <div class="edu-years">2023<span>Present</span></div>
-                <div class="edu-main">
-                    <p class="pick-kicker">University</p>
-                    <h3>B.Sc. in Computer Science &amp; Engineering</h3>
-                    <p class="edu-school">American International University-Bangladesh (AIUB)</p>
-                    <p class="edu-course"><strong>Relevant coursework:</strong> Machine Learning, Computer Vision &amp; Pattern Recognition, NLP, Image Processing, Data Structures &amp; Algorithms, Databases, Operating Systems, Computer Networks, Computer Graphics, Software Engineering, Statistics &amp; Probability.</p>
+        <div class="edu-wrap">
+            <article class="edu-uni reveal">
+                <div class="edu-uni-top">
+                    <span class="edu-logo"><i class="fas fa-building-columns"></i></span>
+                    <div class="edu-uni-info">
+                        <p class="edu-when"><span class="live-dot"></span> University · 2023 – Present</p>
+                        <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+                        <p class="edu-school">American International University-Bangladesh (AIUB)</p>
+                    </div>
+                    <div class="edu-ring ring-red" style="--p:0.935">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-track" cx="50" cy="50" r="42"/><circle class="ring-fill" cx="50" cy="50" r="42"/></svg>
+                        <div class="ring-label"><strong class="ring-num" data-count="3.74" data-decimals="2">3.74</strong><span>CGPA / 4.00</span></div>
+                    </div>
                 </div>
-                <div class="edu-score"><span>CGPA</span><strong>3.74</strong></div>
+
+                <div class="edu-course-block">
+                    <p class="edu-course-title">Relevant coursework <span><i class="fas fa-circle"></i> AI &amp; ML focus</span></p>
+                    <ul class="course-chips">
+                        <li class="hot">Machine Learning</li>
+                        <li class="hot">Computer Vision &amp; Pattern Recognition</li>
+                        <li class="hot">Natural Language Processing</li>
+                        <li class="hot">Image Processing</li>
+                        <li>Data Structures &amp; Algorithms</li>
+                        <li>Object-Oriented Programming</li>
+                        <li>Databases</li>
+                        <li>Operating Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Computer Graphics</li>
+                        <li>System Design</li>
+                        <li>Software Engineering</li>
+                        <li>Discrete Mathematics</li>
+                        <li>Statistics &amp; Probability</li>
+                    </ul>
+                </div>
             </article>
 
-            <article class="edu-card reveal">
-                <div class="edu-years">2018<span>2020</span></div>
-                <div class="edu-main">
-                    <p class="pick-kicker">Higher Secondary</p>
-                    <h3>Higher Secondary Certificate (HSC)</h3>
-                    <p class="edu-school">Cantonment College Jashore</p>
-                </div>
-                <div class="edu-score"><span>GPA</span><strong>5.00</strong></div>
-            </article>
+            <div class="edu-schools">
+                <article class="edu-mini reveal">
+                    <span class="edu-logo small"><i class="fas fa-school"></i></span>
+                    <div class="edu-mini-info">
+                        <p class="edu-when">Higher Secondary · 2018 – 2020</p>
+                        <h3>Higher Secondary Certificate (HSC)</h3>
+                        <p class="edu-school">Cantonment College Jashore</p>
+                    </div>
+                    <div class="edu-ring ring-green" style="--p:1">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-track" cx="50" cy="50" r="42"/><circle class="ring-fill" cx="50" cy="50" r="42"/></svg>
+                        <div class="ring-label"><strong class="ring-num" data-count="5.00" data-decimals="2">5.00</strong><span>GPA / 5.00</span></div>
+                    </div>
+                </article>
 
-            <article class="edu-card reveal">
-                <div class="edu-years">2016<span>2018</span></div>
-                <div class="edu-main">
-                    <p class="pick-kicker">Secondary</p>
-                    <h3>Secondary School Certificate (SSC)</h3>
-                    <p class="edu-school">Benapole High School</p>
-                </div>
-                <div class="edu-score"><span>GPA</span><strong>5.00</strong></div>
-            </article>
+                <article class="edu-mini reveal">
+                    <span class="edu-logo small"><i class="fas fa-book-open"></i></span>
+                    <div class="edu-mini-info">
+                        <p class="edu-when">Secondary · 2016 – 2018</p>
+                        <h3>Secondary School Certificate (SSC)</h3>
+                        <p class="edu-school">Benapole High School</p>
+                    </div>
+                    <div class="edu-ring ring-green" style="--p:1">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-track" cx="50" cy="50" r="42"/><circle class="ring-fill" cx="50" cy="50" r="42"/></svg>
+                        <div class="ring-label"><strong class="ring-num" data-count="5.00" data-decimals="2">5.00</strong><span>GPA / 5.00</span></div>
+                    </div>
+                </article>
+            </div>
         </div>
     </div>
 </section>
@@ -657,6 +689,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="portfolio.js?v=22" defer></script>
+<script src="portfolio.js?v=23" defer></script>
 </body>
 </html>
