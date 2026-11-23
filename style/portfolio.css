@@ -981,3 +981,24 @@ nav .container { gap: 1.5rem; }
 @media (max-width: 900px) {
     .nav-menu { display: none; }
 }
+
+/* =========================================================
+   SOCIAL ICONS IN BRAND COLOURS
+   ========================================================= */
+.hero-social a { border-color: transparent; background: var(--surface); box-shadow: var(--shadow-sm); font-size: 1.05rem; }
+.hero-social a[href*="facebook"]  { color: #1877f2; }
+.hero-social a[href*="instagram"] { color: #e1306c; }
+.hero-social a[href*="github"]    { color: #181717; }
+.hero-social a[href*="linkedin"]  { color: #0a66c2; }
+
+.hero-social a:hover { color: #fff; border-color: transparent; transform: translateY(-3px); }
+.hero-social a[href*="facebook"]:hover  { background: #1877f2; box-shadow: 0 10px 20px -8px rgba(24, 119, 242, 0.6); }
+.hero-social a[href*="instagram"]:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); box-shadow: 0 10px 20px -8px rgba(214, 36, 159, 0.6); }
+.hero-social a[href*="github"]:hover    { background: #181717; box-shadow: 0 10px 20px -8px rgba(24, 23, 23, 0.5); }
+.hero-social a[href*="linkedin"]:hover  { background: #0a66c2; box-shadow: 0 10px 20px -8px rgba(10, 102, 194, 0.6); }
+
+/* Same brand colours for the contact icons */
+.contact-item .fa-github   { color: #181717; }
+.contact-item .fa-linkedin { color: #0a66c2; }
+.contact-item .icon-box:has(.fa-linkedin) { background: rgba(10, 102, 194, 0.1); }
+.contact-item .icon-box:has(.fa-github)   { background: rgba(24, 23, 23, 0.07); }
