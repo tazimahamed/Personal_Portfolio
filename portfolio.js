@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealGroups = [
         ".section-title",
         ".video-section",
+        ".experience-card",
         ".skills-grid .skill-card",
         ".projects-grid .project-card",
         ".timeline-item",

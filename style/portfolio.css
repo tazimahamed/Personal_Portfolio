@@ -886,3 +886,98 @@ footer {
 .skill-card:nth-child(5) .skill-icon { color: #db2777; background: rgba(219, 39, 119, 0.08); }
 
 footer { background: var(--surface); }
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+.experience-card {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.4s, transform 0.4s var(--ease);
+}
+
+.experience-card:hover { box-shadow: var(--shadow); }
+
+.exp-logo {
+    flex-shrink: 0;
+    width: 54px; height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    font-size: 1.3rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.exp-body { flex: 1; min-width: 0; }
+
+.exp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.exp-head h3 { font-size: 1.25rem; font-weight: 600; }
+.exp-company { color: var(--accent); font-weight: 500; font-size: 0.97rem; }
+
+.exp-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.35rem; }
+
+.exp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #15803d;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: 999px;
+}
+
+.exp-date { font-size: 0.88rem; color: var(--text-faint); font-weight: 500; }
+
+.exp-location { margin: 0.5rem 0 1rem; font-size: 0.88rem; color: var(--text-faint); }
+.exp-location i { margin-right: 0.3rem; }
+
+.exp-points { list-style: none; }
+
+.exp-points li {
+    position: relative;
+    padding-left: 1.3rem;
+    margin-bottom: 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.exp-points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.65em;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .experience-card { flex-direction: column; padding: 1.5rem; }
+    .exp-meta { align-items: flex-start; }
+}
+
+/* Keep the navbar from crowding at medium widths */
+nav .container { gap: 1.5rem; }
+@media (max-width: 1080px) {
+    .nav-menu { gap: 1.3rem; }
+    .nav-menu a { font-size: 0.86rem; }
+}
+@media (max-width: 900px) {
+    .nav-menu { display: none; }
+}
