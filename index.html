@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=19">
+<link rel="stylesheet" href="style/portfolio.css?v=20">
 </head>
 
 <body>
@@ -605,7 +605,7 @@
     <div class="container">
         <div class="contact-card reveal">
             <div class="contact-left">
-                <p class="eyebrow light">Contact</p>
+                <p class="eyebrow">Contact</p>
                 <h2 class="contact-title">Let's work<br><em>together.</em></h2>
                 <p class="contact-text">
                     I'm looking for opportunities to grow as a machine learning and software engineer.
@@ -637,7 +637,11 @@
                     <span class="c-text"><span class="c-label">GitHub</span><span class="c-value">tazimahamed</span></span>
                     <span class="c-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
-                <p class="c-location" style="--n:4"><i class="fas fa-location-dot"></i> Based in Dhaka, Bangladesh <span>GMT+6</span></p>
+                <div class="c-location" style="--n:4">
+                    <span class="c-loc-icon"><i class="fas fa-location-dot"></i></span>
+                    <span class="c-text"><span class="c-label">Based in · local time</span><span class="c-value">Dhaka, Bangladesh</span></span>
+                    <span class="c-time" aria-live="off" title="Current local time in Dhaka"><span class="c-time-dot"></span><span class="c-time-val">GMT+6</span></span>
+                </div>
             </div>
         </div>
     </div>
@@ -652,6 +656,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=19"></script>
+<script src="portfolio.js?v=20"></script>
 </body>
 </html>

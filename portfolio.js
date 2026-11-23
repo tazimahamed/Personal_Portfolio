@@ -173,6 +173,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener("keydown", e => { if (e.key === "Escape") closeDoor(); });
     }
 
+    /* Live local time in Dhaka next to the location */
+    const timeEl = document.querySelector(".c-time-val");
+    if (timeEl) {
+        const fmt = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Dhaka", hour: "numeric", minute: "2-digit" });
+        const tick = () => { timeEl.textContent = fmt.format(new Date()); };
+        tick();
+        setInterval(tick, 30000);
+    }
+
     /* Journey: click a milestone to open its details */
     document.querySelectorAll(".j-item").forEach(item => {
         const toggle = () => {

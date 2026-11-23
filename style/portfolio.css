@@ -1303,7 +1303,7 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
     color: #c9d6cd;
 }
 .c-location i { color: var(--accent-2); }
-.c-location span { padding: .15rem .55rem; font-size: .74rem; font-weight: 600; color: #9fb3a6; border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; }
+.c-location .c-gmt-old { padding: .15rem .55rem; font-size: .74rem; font-weight: 600; color: #9fb3a6; border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; }
 
 /* staggered slide-in when the contact card scrolls into view */
 .js .c-link, .js .c-location {
@@ -1738,3 +1738,102 @@ nav.scrolled {
     transition: transform .3s var(--ease), background-color .25s linear, color .25s linear;
 }
 .nav-cta:hover { background: var(--accent); color: #fff; }
+
+/* =========================================================
+   CONTACT — light sage & mist
+   ========================================================= */
+.contact-card {
+    color: var(--ink);
+    background:
+        radial-gradient(520px 340px at 100% 0%, rgba(224, 53, 60, .10), transparent 65%),
+        radial-gradient(520px 360px at 0% 100%, rgba(72, 160, 118, .16), transparent 65%),
+        linear-gradient(135deg, #e7eef5 0%, #e9efe6 100%);
+    border: 1px solid #d7e1d8;
+    box-shadow: 0 30px 70px -40px rgba(12, 21, 16, .35);
+}
+/* soft concentric rings behind the heading */
+.contact-card::before {
+    width: 560px; height: 560px;
+    left: -220px; bottom: -280px;
+    background:
+        repeating-radial-gradient(circle, transparent 0 38px, rgba(47, 125, 91, .09) 38px 39px);
+    -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%);
+            mask-image: radial-gradient(circle, #000 30%, transparent 70%);
+}
+
+.contact-title { color: var(--ink); }
+.contact-title em {
+    background: linear-gradient(100deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.contact-text { color: var(--muted); }
+
+.contact-mail { color: #fff; background: linear-gradient(120deg, var(--accent), #f2564f); box-shadow: 0 16px 30px -16px rgba(224, 53, 60, .8); }
+.contact-mail:hover { background: linear-gradient(120deg, #e8404a, var(--accent-2)); }
+.contact-mail:focus-visible { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+
+/* link cards */
+.c-link, .c-location {
+    background: #ffffff;
+    border: 1px solid #e1e8e2;
+    box-shadow: 0 1px 2px rgba(12, 21, 16, .04), 0 10px 24px -18px rgba(12, 21, 16, .35);
+}
+.c-link::before { background: color-mix(in srgb, var(--brand) 9%, #ffffff); }
+.c-link:hover, .c-link:focus-visible {
+    border-color: color-mix(in srgb, var(--brand) 35%, #ffffff);
+    box-shadow: 0 18px 34px -20px color-mix(in srgb, var(--brand) 70%, transparent);
+}
+.c-link:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 40%, #ffffff); }
+
+.c-icon { color: var(--brand); background: color-mix(in srgb, var(--brand) 12%, #ffffff); }
+.c-link:hover .c-icon, .c-link:focus-visible .c-icon { background: var(--brand); color: #fff; }
+
+.c-label { color: var(--faint); }
+.c-value { color: var(--ink); }
+.c-link:hover .c-label, .c-link:focus-visible .c-label { color: color-mix(in srgb, var(--brand) 70%, var(--ink)); }
+
+.c-arrow { color: var(--ink); border-color: #d7e1d8; }
+.c-link:hover .c-arrow, .c-link:focus-visible .c-arrow { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* location row with live local time */
+.c-location {
+    display: flex; align-items: center; gap: 1.1rem;
+    margin-top: 0;
+    padding: 1.05rem 1.2rem;
+    border-radius: 18px;
+    font-size: 1rem;
+    color: var(--ink);
+    background: rgba(255, 255, 255, .55);
+    border-style: dashed;
+    box-shadow: none;
+}
+.c-loc-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    font-size: 1.1rem;
+    color: var(--accent);
+    background: rgba(224, 53, 60, .1);
+    border-radius: 14px;
+}
+.c-location .c-loc-icon i { color: var(--accent); }
+.c-time {
+    display: inline-flex; align-items: center; gap: .45rem;
+    padding: .35rem .75rem;
+    font-size: .82rem; font-weight: 600;
+    color: #1d5a40;
+    background: rgba(72, 160, 118, .14);
+    border: none;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.c-time-dot { width: 7px; height: 7px; border-radius: 50%; background: #2f9e6a; box-shadow: 0 0 0 3px rgba(47, 158, 106, .18); }
+.c-location span.c-time { border: none; }
+
+@media (max-width: 560px) {
+    .c-location { gap: .8rem; padding: .85rem .9rem; }
+    .c-loc-icon { width: 40px; height: 40px; font-size: 1rem; }
+    .c-time { font-size: .74rem; padding: .3rem .6rem; }
+}
+.c-location .c-value { white-space: nowrap; }
+
