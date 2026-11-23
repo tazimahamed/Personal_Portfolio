@@ -1112,25 +1112,6 @@ footer { padding: 2.2rem 0; }
 }
 .about-heading:hover .ah-outline { color: var(--ink); }
 
-/* Arrow pill */
-.ah-arrow {
-    width: 1.5em; height: .82em;
-    margin-left: .12em;
-    display: inline-grid !important;
-    place-items: center;
-    font-size: .9em;
-    border-radius: 999px;
-    background: var(--ink);
-    color: #fff;
-    overflow: hidden;
-}
-.ah-arrow i { font-size: .42em; animation: arrow-run 2.2s var(--ease) infinite; }
-@keyframes arrow-run {
-    0%   { transform: translateX(-160%); }
-    35%  { transform: translateX(0); }
-    65%  { transform: translateX(0); }
-    100% { transform: translateX(160%); }
-}
 
 /* "real-world" — serif italic, warm gradient, drawn underline */
 .ah-highlight {
@@ -1179,5 +1160,68 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
 @media (prefers-reduced-motion: reduce) {
     .js .about-heading .w { opacity: 1; transform: none; filter: none; }
     .ah-scribble path { stroke-dashoffset: 0; animation: none !important; }
-    .ah-arrow i { animation: none; }
+}
+
+/* =========================================================
+   JOURNEY — expandable cards
+   ========================================================= */
+.j-item { cursor: pointer; padding-right: 4.2rem; }
+.j-item:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; }
+.j-item:hover { opacity: .85; border-color: rgba(245, 158, 66, .3); }
+.j-item.current:hover, .j-item.open:hover { opacity: 1; }
+
+.j-toggle {
+    position: absolute;
+    top: 1.6rem; right: 1.5rem;
+    width: 36px; height: 36px;
+    display: grid; place-items: center;
+    font-size: .8rem;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 50%;
+    transition: transform .45s var(--ease), background .3s, border-color .3s;
+}
+.j-item:hover .j-toggle { border-color: var(--accent-2); }
+.j-item.open .j-toggle { transform: rotate(135deg); background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; }
+
+.j-more {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .55s var(--ease);
+}
+.j-more-inner { overflow: hidden; min-height: 0; }
+.j-item.open .j-more { grid-template-rows: 1fr; }
+.j-item.open { opacity: 1; transform: none; background: rgba(255, 255, 255, .08); border-color: rgba(245, 158, 66, .45); }
+
+.j-points {
+    list-style: none;
+    margin-top: 1.3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    display: flex; flex-direction: column; gap: .7rem;
+}
+.j-points li { display: grid; grid-template-columns: 130px 1fr; gap: 1rem; font-size: .92rem; color: #e6ddd4; line-height: 1.5; }
+.j-points span { font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #f7a86e; padding-top: .15rem; }
+
+.j-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.3rem; }
+.j-links a {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .5rem 1rem;
+    font-size: .84rem; font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 999px;
+    transition: background .3s, border-color .3s, transform .3s var(--ease);
+}
+.j-links a:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+.j-links i { font-size: .75rem; }
+
+.journey-hint { margin-top: -2.4rem; margin-bottom: 3rem; font-size: .9rem; color: #a89d94; }
+.journey-hint i { color: var(--accent-2); margin-right: .4rem; }
+
+@media (max-width: 560px) {
+    .j-item { padding-right: 1.6rem; }
+    .j-toggle { top: 1.4rem; right: 1.2rem; }
+    .j-points li { grid-template-columns: 1fr; gap: .15rem; }
 }

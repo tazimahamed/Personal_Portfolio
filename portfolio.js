@@ -111,6 +111,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.6 });
     document.querySelectorAll(".stat-num").forEach(el => countObserver.observe(el));
 
+    /* Journey: click a milestone to open its details */
+    document.querySelectorAll(".j-item").forEach(item => {
+        const toggle = () => {
+            const open = !item.classList.contains("open");
+            document.querySelectorAll(".j-item.open").forEach(o => {
+                if (o !== item) { o.classList.remove("open"); o.setAttribute("aria-expanded", "false"); }
+            });
+            item.classList.toggle("open", open);
+            item.setAttribute("aria-expanded", String(open));
+        };
+        item.addEventListener("click", e => {
+            if (e.target.closest("a")) return;   // links inside work normally
+            toggle();
+        });
+        item.addEventListener("keydown", e => {
+            if (e.target !== item) return;
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+        });
+    });
+
     /* Journey: big year follows the item in focus */
     const yearEl = document.querySelector(".year-current");
     const items = [...document.querySelectorAll(".j-item")];

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=10">
+<link rel="stylesheet" href="style/portfolio.css?v=11">
 </head>
 
 <body>
@@ -91,7 +91,6 @@
                     <span class="w" style="--i:0">From</span>
                     <span class="w ah-outline" style="--i:1">research</span>
                     <span class="w ah-outline" style="--i:2">idea</span>
-                    <span class="w ah-arrow" style="--i:3"><i class="fas fa-arrow-right"></i></span>
                 </span>
                 <span class="ah-line" aria-hidden="true">
                     <span class="w" style="--i:4">to</span>
@@ -167,6 +166,7 @@
             <p class="eyebrow light">My journey</p>
             <h2 class="big-heading light">Let's go back in time.</h2>
         </div>
+        <p class="journey-hint"><i class="fas fa-hand-pointer"></i>Tap any milestone to see the details.</p>
 
         <div class="journey-grid">
             <div class="year-display" aria-hidden="true">
@@ -175,44 +175,104 @@
             </div>
 
             <div class="journey-list">
-                <article class="j-item" data-year="2026">
+                <article class="j-item" data-year="2026" tabindex="0" role="button" aria-expanded="false">
+                    <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2026</span>
                     <span class="j-tag">Experience</span>
                     <h3>Software Intern, Square InformatiX Ltd.</h3>
                     <p class="j-meta">Software Department · Oct – Dec 2026 · Mohakhali, Dhaka</p>
                     <p>Working with the IT company of SQUARE Group under the guidance of a Senior Analyst Programmer, contributing to real-world software in an ISO 9001:2015 certified environment.</p>
+                    <div class="j-more"><div class="j-more-inner">
+                        <ul class="j-points">
+                            <li><span>Duration</span>1 October – 31 December 2026</li>
+                            <li><span>Team</span>Software Department, under a Senior Analyst Programmer</li>
+                            <li><span>Location</span>48 Mohakhali C/A, Dhaka 1212</li>
+                            <li><span>Placement</span>Arranged through AIUB's Office of Placement &amp; Alumni</li>
+                        </ul>
+                        <div class="j-links">
+                            <a href="https://www.squareinformatix.com" target="_blank">Company website <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div></div>
                 </article>
 
-                <article class="j-item" data-year="2026">
+                <article class="j-item" data-year="2026" tabindex="0" role="button" aria-expanded="false">
+                    <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2026</span>
                     <span class="j-tag gold">Achievement</span>
                     <h3>EduTutor BD reaches the Final Round of The Infinity AI BuildFest 2026</h3>
                     <p class="j-meta">CloudCamp Bangladesh × BRAC University</p>
                     <p>My Bengali AI tutor, EduTutor BD, was selected for the final round of this national AI build competition.</p>
+                    <div class="j-more"><div class="j-more-inner">
+                        <ul class="j-points">
+                            <li><span>Project</span>EduTutor BD, an AI tutor for SSC students in Bangla</li>
+                            <li><span>How it works</span>RAG over NCTB textbooks (2,768 chunks) with LLaMA 3.3 70B and Bloom's Taxonomy questioning</li>
+                            <li><span>Speed</span>Generates and grades questions with Bengali feedback in under 2 seconds</li>
+                        </ul>
+                        <div class="j-links">
+                            <a href="https://edu-tutor-one.vercel.app/eduhome.html" target="_blank">Try the live site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                            <a href="#work">See project details <i class="fas fa-arrow-down"></i></a>
+                        </div>
+                    </div></div>
                 </article>
 
-                <article class="j-item" data-year="2025">
+                <article class="j-item" data-year="2025" tabindex="0" role="button" aria-expanded="false">
+                    <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2025</span>
                     <span class="j-tag">Projects &amp; Research</span>
                     <h3>EduTutor BD, Beyond the Menu &amp; low-light detection research</h3>
                     <p class="j-meta">LLaMA 3.3 70B · RAG · ESP32 · MQTT · YOLOv8m</p>
                     <p>Built a Bengali AI tutor and a tangible RFID ordering robot, and wrote a paper improving traffic sign detection at night with Zero-DCE++ and YOLOv8m.</p>
+                    <div class="j-more"><div class="j-more-inner">
+                        <ul class="j-points">
+                            <li><span>EduTutor BD</span>Full-stack AI tutor with FastAPI, ChromaDB, Groq and PHP/MySQL dashboards</li>
+                            <li><span>Beyond the Menu</span>Diners tap RFID cards to order; ESP32 terminals and a delivery car talk over MQTT to a kitchen dashboard</li>
+                            <li><span>Research</span>Zero-DCE++ + YOLOv8m on 4,062 night-time images, beating YOLO-LLTS and LLE-STD</li>
+                        </ul>
+                        <div class="j-links">
+                            <a href="https://edu-tutor-one.vercel.app/eduhome.html" target="_blank">EduTutor BD <i class="fas fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/tazimahamed/HCI-project" target="_blank">Beyond the Menu <i class="fab fa-github"></i></a>
+                            <a href="#research">Read about the paper <i class="fas fa-arrow-down"></i></a>
+                        </div>
+                    </div></div>
                 </article>
 
-                <article class="j-item" data-year="2024">
+                <article class="j-item" data-year="2024" tabindex="0" role="button" aria-expanded="false">
+                    <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2024</span>
                     <span class="j-tag">Projects</span>
                     <h3>AgroLink, Soil Health Monitor &amp; more</h3>
                     <p class="j-meta">PHP · AJAX · ESP8266 · ThingSpeak · OpenGL · Digital Logic</p>
                     <p>Shipped a farmer-to-customer marketplace, a solar-powered IoT soil monitor, an OpenGL railway scene, and a 4-way traffic signal controller on hardware.</p>
+                    <div class="j-more"><div class="j-more-inner">
+                        <ul class="j-points">
+                            <li><span>AgroLink</span>Marketplace with catalog, cart, orders, reviews and live AJAX updates</li>
+                            <li><span>Soil Monitor</span>ESP8266 + sensors streaming soil and air data to ThingSpeak with alerts</li>
+                            <li><span>Railway Scene</span>OpenGL / C++ scene with tracks, platforms, a road and a river</li>
+                            <li><span>Traffic Signal</span>555 Timer, 4017 counter and 74LS gates, built on a breadboard</li>
+                        </ul>
+                        <div class="j-links">
+                            <a href="https://github.com/HasiburRahman404/AgroLink" target="_blank">AgroLink <i class="fab fa-github"></i></a>
+                            <a href="https://github.com/tazimahamed/Graphics_project" target="_blank">Railway Scene <i class="fab fa-github"></i></a>
+                        </div>
+                    </div></div>
                 </article>
 
-                <article class="j-item" data-year="2023">
+                <article class="j-item" data-year="2023" tabindex="0" role="button" aria-expanded="false">
+                    <span class="j-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
                     <span class="j-year-mobile">2023</span>
                     <span class="j-tag">Project</span>
                     <h3>Taylor, Online Dress Store</h3>
                     <p class="j-meta">Java · C# · SQL</p>
                     <p>My first full application: an e-commerce system for men's and women's clothing with a product catalog, shopping cart and secure checkout.</p>
+                    <div class="j-more"><div class="j-more-inner">
+                        <ul class="j-points">
+                            <li><span>Features</span>Product catalog, shopping cart and secure checkout</li>
+                            <li><span>Stack</span>Java and C# front ends with an SQL database</li>
+                        </ul>
+                        <div class="j-links">
+                            <a href="https://github.com/tazimahamed/C-_project" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div></div>
                 </article>
             </div>
         </div>
@@ -536,6 +596,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=10"></script>
+<script src="portfolio.js?v=11"></script>
 </body>
 </html>
