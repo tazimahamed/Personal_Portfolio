@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=8">
+<link rel="stylesheet" href="style/portfolio.css?v=9">
 </head>
 
 <body>
@@ -86,29 +86,59 @@
     <div class="container about-grid">
         <div class="about-copy reveal">
             <p class="eyebrow">About me</p>
-            <h2 class="big-heading">I turn ideas into <em>working</em> intelligent systems.</h2>
-            <p class="body-lg">
-                I'm a Computer Science &amp; Engineering student at American International University-Bangladesh,
-                currently interning in the Software Department at Square InformatiX Ltd.
+            <h2 class="big-heading">From research idea to <em>real-world</em> product.</h2>
+
+            <p class="about-lead">
+                I'm a Computer Science &amp; Engineering undergraduate at American International University-Bangladesh
+                and a Software Intern at Square InformatiX Ltd., the technology company of SQUARE Group.
             </p>
             <p class="body-lg muted">
-                I enjoy the full journey of a project: curating data, designing models, and shipping
-                end-to-end apps that real people can use, whether that's a Bengali AI tutor, a low-light traffic sign
-                detector, or a restaurant robot you order from with a tap.
+                My work sits where machine learning meets practical engineering. I take projects end to end:
+                preparing and curating data, designing and evaluating models, and building the applications that
+                put them in people's hands.
             </p>
+            <p class="body-lg muted">
+                Recent work includes a Bengali AI tutor built on retrieval-augmented generation, a model that
+                improves traffic sign detection in low light, and an RFID-based ordering robot for restaurants.
+            </p>
+
             <div class="stats">
-                <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-plus">+</span><p>Projects built</p></div>
+                <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-plus">+</span><p>Projects shipped</p></div>
                 <div class="stat"><span class="stat-num" data-count="3.74" data-decimals="2">0</span><p>Current CGPA</p></div>
                 <div class="stat"><span class="stat-num" data-count="1">0</span><p>Research paper</p></div>
+                <div class="stat"><span class="stat-num" data-count="1">0</span><p>National AI finalist</p></div>
             </div>
         </div>
 
-        <div class="about-video reveal">
+        <div class="about-side reveal">
             <div class="video-frame" id="videoContainer" onclick="playVideo()">
                 <div class="video-placeholder">
                     <span class="play-btn"><i class="fas fa-play"></i></span>
                     <p>Watch project demo</p>
                 </div>
+            </div>
+
+            <div class="now-card">
+                <span class="live-dot"></span>
+                <p><strong>Currently</strong> Software Intern at Square InformatiX · Oct–Dec 2026</p>
+            </div>
+
+            <div class="focus">
+                <p class="focus-title">What I focus on</p>
+                <ul class="focus-list">
+                    <li>
+                        <span class="focus-icon"><i class="fas fa-eye"></i></span>
+                        <div><h4>Computer Vision</h4><p>Detection and enhancement models for difficult, real-world conditions.</p></div>
+                    </li>
+                    <li>
+                        <span class="focus-icon"><i class="fas fa-language"></i></span>
+                        <div><h4>NLP &amp; LLM Systems</h4><p>RAG pipelines and language tools built for Bengali learners.</p></div>
+                    </li>
+                    <li>
+                        <span class="focus-icon"><i class="fas fa-microchip"></i></span>
+                        <div><h4>IoT &amp; Embedded</h4><p>ESP32 and sensor systems that connect software to the physical world.</p></div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -490,6 +520,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=8"></script>
+<script src="portfolio.js?v=9"></script>
 </body>
 </html>

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Scroll reveal with a small stagger inside each group */
     const groups = [
-        ".section-head", ".about-copy", ".about-video", ".journey-head",
+        ".section-head", ".about-copy", ".about-side", ".journey-head",
         ".pick", ".more-head", ".more-grid .mini", ".paper, .award",
         ".skill-groups .skill-group", ".edu-list .edu-card", ".contact-card"
     ];
