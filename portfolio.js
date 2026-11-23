@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const groups = [
         ".section-head", ".about-copy", ".about-side", ".journey-head",
         ".pick", ".more-head", ".more-grid .mini", ".paper, .award",
-        ".skill-groups .skill-group", ".edu-list .edu-card", ".contact-card"
+        ".edu-list .edu-card", ".contact-card"
     ];
     groups.forEach(sel => {
         document.querySelectorAll(sel).forEach((el, idx) => {
@@ -110,6 +110,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.6 });
     document.querySelectorAll(".stat-num").forEach(el => countObserver.observe(el));
+    /* Skills doors */
+    const doorsWrap = document.querySelector(".doors");
+    if (doorsWrap) {
+        new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => { if (e.isIntersecting) { doorsWrap.classList.add("in-view"); obs.disconnect(); } });
+        }, { threshold: 0.15 }).observe(doorsWrap);
+
+        const doors = doorsWrap.querySelectorAll(".door");
+        const setOpen = (door, open) => {
+            door.classList.toggle("open", open);
+            door.setAttribute("aria-expanded", String(open));
+        };
+        doors.forEach(door => {
+            door.addEventListener("click", () => setOpen(door, !door.classList.contains("open")));
+            door.addEventListener("keydown", e => {
+                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(door, !door.classList.contains("open")); }
+            });
+        });
+
+        /* Touch screens have no hover, so open each door as it scrolls into view */
+        if (!window.matchMedia("(hover: hover)").matches) {
+            const autoOpen = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    setTimeout(() => setOpen(e.target, true), 500);
+                    autoOpen.unobserve(e.target);
+                });
+            }, { threshold: 0.7 });
+            doors.forEach(d => autoOpen.observe(d));
+        }
+    }
+
     /* Journey: click a milestone to open its details */
     document.querySelectorAll(".j-item").forEach(item => {
         const toggle = () => {

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=14">
+<link rel="stylesheet" href="style/portfolio.css?v=15">
 </head>
 
 <body>
@@ -459,38 +459,94 @@
 </section>
 
 <!-- ================= SKILLS ================= -->
-<section id="skills" class="section">
+<section id="skills" class="section skills-doors">
     <div class="container">
         <div class="section-head reveal">
             <p class="eyebrow">Toolkit</p>
-            <h2 class="big-heading">What I work with.</h2>
+            <h2 class="big-heading">Step inside my <em>toolkit.</em></h2>
+            <p class="body-lg muted door-hint"><i class="fas fa-door-open"></i> Hover or tap a door to see what's inside.</p>
         </div>
 
-        <div class="skill-groups">
-            <div class="skill-group reveal">
-                <div class="sg-icon c1"><i class="fas fa-code"></i></div>
-                <h4>Languages</h4>
-                <div class="chips"><span>Python</span><span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Dart</span><span>PHP</span><span>SQL</span></div>
+        <div class="doors">
+            <div class="door" style="--k:0" tabindex="0" role="button" aria-expanded="false" aria-label="Languages: open to see skills">
+                <div class="door-frame">
+                    <div class="door-inside">
+                        <p class="door-inside-title">Languages</p>
+                        <ul class="door-chips"><li style="--c:0">Python</li><li style="--c:1">C</li><li style="--c:2">C++</li><li style="--c:3">Java</li><li style="--c:4">JavaScript</li><li style="--c:5">Dart</li><li style="--c:6">PHP</li><li style="--c:7">SQL</li></ul>
+                    </div>
+                    <div class="door-leaf">
+                        <span class="door-panel"></span>
+                        <span class="door-icon"><i class="fas fa-code"></i></span>
+                        <span class="door-name">Languages</span>
+                        <span class="door-count">8 skills</span>
+                        <span class="door-knob"></span>
+                    </div>
+                </div>
+                <p class="door-peek">Python · C · C++</p>
             </div>
-            <div class="skill-group reveal">
-                <div class="sg-icon c2"><i class="fas fa-brain"></i></div>
-                <h4>AI / ML</h4>
-                <div class="chips"><span>TensorFlow</span><span>PyTorch</span><span>scikit-learn</span><span>Keras</span><span>OpenCV</span><span>Mediapipe</span><span>YOLO</span><span>RAG</span></div>
+            <div class="door" style="--k:1" tabindex="0" role="button" aria-expanded="false" aria-label="AI / ML: open to see skills">
+                <div class="door-frame">
+                    <div class="door-inside">
+                        <p class="door-inside-title">AI / ML</p>
+                        <ul class="door-chips"><li style="--c:0">TensorFlow</li><li style="--c:1">PyTorch</li><li style="--c:2">scikit-learn</li><li style="--c:3">Keras</li><li style="--c:4">OpenCV</li><li style="--c:5">Mediapipe</li><li style="--c:6">YOLO</li><li style="--c:7">RAG</li></ul>
+                    </div>
+                    <div class="door-leaf">
+                        <span class="door-panel"></span>
+                        <span class="door-icon"><i class="fas fa-brain"></i></span>
+                        <span class="door-name">AI / ML</span>
+                        <span class="door-count">8 skills</span>
+                        <span class="door-knob"></span>
+                    </div>
+                </div>
+                <p class="door-peek">TensorFlow · PyTorch · scikit-learn</p>
             </div>
-            <div class="skill-group reveal">
-                <div class="sg-icon c3"><i class="fas fa-chart-line"></i></div>
-                <h4>Data</h4>
-                <div class="chips"><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>ChromaDB</span><span>MySQL</span></div>
+            <div class="door" style="--k:2" tabindex="0" role="button" aria-expanded="false" aria-label="Data: open to see skills">
+                <div class="door-frame">
+                    <div class="door-inside">
+                        <p class="door-inside-title">Data</p>
+                        <ul class="door-chips"><li style="--c:0">NumPy</li><li style="--c:1">Pandas</li><li style="--c:2">Matplotlib</li><li style="--c:3">ChromaDB</li><li style="--c:4">MySQL</li></ul>
+                    </div>
+                    <div class="door-leaf">
+                        <span class="door-panel"></span>
+                        <span class="door-icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="door-name">Data</span>
+                        <span class="door-count">5 skills</span>
+                        <span class="door-knob"></span>
+                    </div>
+                </div>
+                <p class="door-peek">NumPy · Pandas · Matplotlib</p>
             </div>
-            <div class="skill-group reveal">
-                <div class="sg-icon c4"><i class="fas fa-globe"></i></div>
-                <h4>Web &amp; IoT</h4>
-                <div class="chips"><span>HTML/CSS</span><span>Tailwind</span><span>Bootstrap</span><span>FastAPI</span><span>ESP32</span><span>Arduino</span><span>MQTT</span></div>
+            <div class="door" style="--k:3" tabindex="0" role="button" aria-expanded="false" aria-label="Web &amp; IoT: open to see skills">
+                <div class="door-frame">
+                    <div class="door-inside">
+                        <p class="door-inside-title">Web &amp; IoT</p>
+                        <ul class="door-chips"><li style="--c:0">HTML/CSS</li><li style="--c:1">Tailwind</li><li style="--c:2">Bootstrap</li><li style="--c:3">FastAPI</li><li style="--c:4">ESP32</li><li style="--c:5">Arduino</li><li style="--c:6">MQTT</li></ul>
+                    </div>
+                    <div class="door-leaf">
+                        <span class="door-panel"></span>
+                        <span class="door-icon"><i class="fas fa-microchip"></i></span>
+                        <span class="door-name">Web &amp; IoT</span>
+                        <span class="door-count">7 skills</span>
+                        <span class="door-knob"></span>
+                    </div>
+                </div>
+                <p class="door-peek">HTML/CSS · Tailwind · Bootstrap</p>
             </div>
-            <div class="skill-group reveal">
-                <div class="sg-icon c5"><i class="fas fa-screwdriver-wrench"></i></div>
-                <h4>Tools</h4>
-                <div class="chips"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Google Colab</span><span>Kaggle</span><span>Tinkercad</span></div>
+            <div class="door" style="--k:4" tabindex="0" role="button" aria-expanded="false" aria-label="Tools: open to see skills">
+                <div class="door-frame">
+                    <div class="door-inside">
+                        <p class="door-inside-title">Tools</p>
+                        <ul class="door-chips"><li style="--c:0">Git</li><li style="--c:1">GitHub</li><li style="--c:2">VS Code</li><li style="--c:3">Google Colab</li><li style="--c:4">Kaggle</li><li style="--c:5">Tinkercad</li></ul>
+                    </div>
+                    <div class="door-leaf">
+                        <span class="door-panel"></span>
+                        <span class="door-icon"><i class="fas fa-screwdriver-wrench"></i></span>
+                        <span class="door-name">Tools</span>
+                        <span class="door-count">6 skills</span>
+                        <span class="door-knob"></span>
+                    </div>
+                </div>
+                <p class="door-peek">Git · GitHub · VS Code</p>
             </div>
         </div>
     </div>
@@ -548,6 +604,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=14"></script>
+<script src="portfolio.js?v=15"></script>
 </body>
 </html>
