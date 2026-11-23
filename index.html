@@ -3,435 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Md. Tazim Ahamed | Portfolio</title>
+<meta name="description" content="Md. Tazim Ahamed — CSE student at AIUB building Machine Learning, Computer Vision, NLP and IoT systems. Software Intern at Square InformatiX.">
 
-<link rel="stylesheet" href="style/portfolio.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="style/portfolio.css?v=4">
 </head>
 
 <body>
 <div class="scroll-progress"></div>
 
-<!-- NAVBAR -->
-
+<!-- ================= NAV ================= -->
 <nav>
-
-<div class="container">
-
-<div class="logo">
-      <span>Tazim</span>
+    <div class="container nav-inner">
+        <a href="#home" class="logo">Tazim<span>.</span></a>
+        <ul class="nav-menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-cta" onclick="downloadResume()"><i class="fas fa-arrow-down"></i> Resume</button>
     </div>
-
-<ul class="nav-menu">
-
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<button class="nav-cta" onclick="downloadResume()">
-<i class="fas fa-download"></i> Resume
-</button>
-
-</div>
-
 </nav>
 
 <main>
-        <section class="hero" id="home">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <div class="hero-eyebrow" data-enter style="animation-delay:.05s"><span class="status-dot"></span>Currently Software Intern at Square InformatiX Ltd.</div>
-                    <h1 data-enter style="animation-delay:.15s">Md. Tazim <span class="name-accent">Ahamed</span></h1>
-                    <div class="hero-role" data-enter style="animation-delay:.25s"><span class="typed"></span><span class="caret"></span></div>
-                    <p class="hero-lead" data-enter style="animation-delay:.35s">
-                        Computer Science & Engineering student specializing in Machine Learning, 
-                        Computer Vision, and Natural Language Processing, driven by a passion for 
-                        building intelligent and impactful AI solutions.
-                    </p>
 
-                    <div class="hero-buttons" data-enter style="animation-delay:.45s">
-                        <button class="btn btn-primary" onclick="scrollToSection('contact')">
-                            Contact Me <i class="fas fa-arrow-right"></i>
-                        </button>
-                        <button class="btn btn-secondary" onclick="downloadResume()">
-                            <i class="fas fa-download"></i> Download CV
-                        </button>
-                    </div>
-
-                    <div class="hero-social" data-enter style="animation-delay:.55s">
-                        <a href="https://www.facebook.com/share/1CatbUk8AU/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/taz_imahamed?igsh=cGtsMnI4eHo2bXp2&utm_source=qr"><i class="fab fa-instagram"></i></a>
-                        <a href="https://github.com/tazimahamed"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mdtazimahamed"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="profile-circle" data-enter style="animation-delay:.3s">
-                        <div class="profile-inner">
-                            <img src="images/picture.jpg" alt="Tazim" class="profile-img">
-                        </div>
-                    </div>
-                </div>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <p class="hero-hello" data-enter style="--d:.05s"><span class="wave">👋</span> Hello there</p>
+            <h1 class="hero-title">
+                <span class="line"><span data-enter style="--d:.12s">Hi, I'm Tazim.</span></span>
+                <span class="line"><span data-enter style="--d:.24s">I am a</span></span>
+            </h1>
+            <div class="role-tag" data-enter style="--d:.36s">
+                <span class="typed">Machine Learning Engineer</span><span class="caret"></span>
             </div>
-        </section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title" data-kicker="Introduction">About Me</h2>
-
-    <div class="video-section">
-      <div class="video-content">
-        
-        <div class="video-frame" id="videoContainer" onclick="playVideo()">
-          <div class="video-placeholder" id="placeholder">
-            <span>▶</span>
-            <p style="font-size: 1rem; margin-top: 10px;">Click to Play Project Demo</p>
-          </div>
+            <p class="hero-lead" data-enter style="--d:.48s">
+                CSE student at AIUB building intelligent systems across
+                <strong>Machine Learning</strong>, <strong>Computer Vision</strong>, <strong>NLP</strong> and <strong>IoT</strong>,
+                from Bengali AI tutors to RFID-driven delivery robots.
+            </p>
+            <div class="hero-actions" data-enter style="--d:.6s">
+                <a href="#work" class="btn btn-dark">See my work <i class="fas fa-arrow-right"></i></a>
+                <button class="btn btn-ghost" onclick="downloadResume()"><i class="fas fa-download"></i> Download CV</button>
+            </div>
+            <div class="hero-social" data-enter style="--d:.72s">
+                <a href="https://www.facebook.com/share/1CatbUk8AU/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/taz_imahamed?igsh=cGtsMnI4eHo2bXp2&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/tazimahamed" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mdtazimahamed" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
 
-        <div class="video-text">
-          <h3>Computer Science & Engineering Student</h3>
-          <p class="about-text">
-            I am a Computer Science and Engineering student at American International University-Bangladesh.
-            My work focuses on Machine Learning, Deep Learning, Computer Vision, and IoT systems.
-          </p>
-          <p class="about-text">
-            I enjoy building intelligent systems that solve real-world problems,
-            including traffic sign detection, a Bengali AI tutor, agricultural marketplaces,
-            IoT robotics, and environmental monitoring systems.
-          </p>
+        <div class="hero-visual" data-enter style="--d:.3s">
+            <div class="photo-card">
+                <img src="images/picture.jpg" alt="Md. Tazim Ahamed">
+            </div>
+            <div class="float-chip chip-1"><span class="live-dot"></span> Software Intern · Square InformatiX</div>
+            <div class="float-chip chip-2"><i class="fas fa-graduation-cap"></i> CGPA 3.74</div>
+            <div class="float-chip chip-3"><i class="fas fa-trophy"></i> AI BuildFest 2026 Finalist</div>
         </div>
-
-      </div>
     </div>
-  </div>
+
+    <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
 </section>
 
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<div class="container">
-
-<h2 class="section-title" data-kicker="Toolkit">Technical Skills</h2>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-
-<div class="skill-icon"><i class="fas fa-code"></i></div>
-<h3>Programming</h3>
-
-<p>Python, C, C++, Java, JavaScript, Dart, PHP, SQL</p>
-
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+        <span>Machine Learning</span><i>✦</i><span>Computer Vision</span><i>✦</i><span>NLP &amp; LLMs</span><i>✦</i><span>RAG</span><i>✦</i><span>IoT &amp; Robotics</span><i>✦</i><span>Deep Learning</span><i>✦</i><span>Full-Stack Web</span><i>✦</i>
+        <span>Machine Learning</span><i>✦</i><span>Computer Vision</span><i>✦</i><span>NLP &amp; LLMs</span><i>✦</i><span>RAG</span><i>✦</i><span>IoT &amp; Robotics</span><i>✦</i><span>Deep Learning</span><i>✦</i><span>Full-Stack Web</span><i>✦</i>
+    </div>
 </div>
 
-<div class="skill-card">
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+    <div class="container about-grid">
+        <div class="about-copy reveal">
+            <p class="eyebrow">About me</p>
+            <h2 class="big-heading">I turn ideas into <em>working</em> intelligent systems.</h2>
+            <p class="body-lg">
+                I'm a Computer Science &amp; Engineering student at American International University-Bangladesh,
+                currently interning in the Software Department at Square InformatiX Ltd.
+            </p>
+            <p class="body-lg muted">
+                I enjoy the full journey of a project: curating data, designing models, and shipping
+                end-to-end apps that real people can use, whether that's a Bengali AI tutor, a low-light traffic sign
+                detector, or a restaurant robot you order from with a tap.
+            </p>
+            <div class="stats">
+                <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-plus">+</span><p>Projects built</p></div>
+                <div class="stat"><span class="stat-num" data-count="3.74" data-decimals="2">0</span><p>Current CGPA</p></div>
+                <div class="stat"><span class="stat-num" data-count="1">0</span><p>Research paper</p></div>
+            </div>
+        </div>
 
-<div class="skill-icon"><i class="fas fa-brain"></i></div>
-<h3>AI & Machine Learning</h3>
-
-<p>TensorFlow, PyTorch, scikit-learn, Keras, OpenCV, Mediapipe</p>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-<h3>Data Tools</h3>
-
-<p>NumPy, Pandas, Matplotlib, Seaborn</p>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-icon"><i class="fas fa-globe"></i></div>
-<h3>Web Development</h3>
-
-<p>HTML, CSS, Bootstrap, Tailwind, PHP</p>
-
-</div>
-
-<div class="skill-card">
-
-<div class="skill-icon"><i class="fas fa-screwdriver-wrench"></i></div>
-<h3>Tools</h3>
-
-<p>Git, GitHub, VS Code, Kaggle, Google Colab</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- EXPERIENCE -->
-<section id="experience">
-    <div class="container">
-        <h2 class="section-title" data-kicker="Career">Experience</h2>
-
-        <div class="experience-card">
-            <div class="exp-logo"><i class="fas fa-building"></i></div>
-            <div class="exp-body">
-                <div class="exp-head">
-                    <div>
-                        <h3>Software Intern</h3>
-                        <p class="exp-company">Square InformatiX Ltd. &middot; Software Department</p>
-                    </div>
-                    <div class="exp-meta">
-                        <span class="exp-badge"><span class="status-dot"></span>Current</span>
-                        <span class="exp-date">Oct 2026 &ndash; Dec 2026</span>
-                    </div>
+        <div class="about-video reveal">
+            <div class="video-frame" id="videoContainer" onclick="playVideo()">
+                <div class="video-placeholder">
+                    <span class="play-btn"><i class="fas fa-play"></i></span>
+                    <p>Watch project demo</p>
                 </div>
-                <p class="exp-location"><i class="fas fa-location-dot"></i> Mohakhali, Dhaka</p>
-                <ul class="exp-points">
-                    <li>Working with the Software Department of Square InformatiX, the IT company of SQUARE Group, under the guidance of a Senior Analyst Programmer.</li>
-                    <li>Contributing to real-world software development and learning professional engineering practices in an ISO 9001:2015 certified environment.</li>
-                </ul>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- Project -->
-<section id="projects">
+<!-- ================= JOURNEY ================= -->
+<section id="journey" class="section journey">
     <div class="container">
-        <h2 class="section-title" data-kicker="Selected Work">Projects</h2>
-        <div class="projects-grid">
-            
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
-                    <div class="image-slider">
-                        <img src="images/edu1.png" class="active" alt="EduTutor BD 1">
-                        <img src="images/edu2.png" alt="EduTutor BD 2">
-                        <img src="images/edu3.png" alt="EduTutor BD 3">
-                        <img src="images/edu4.png" alt="EduTutor BD 4">
-                        <img src="images/edu5.png" alt="EduTutor BD 5">
-                    </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">EduTutor BD – Bengali AI Tutor</h3>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>Full-stack Bengali AI tutoring platform for SSC students using RAG over NCTB textbooks (2,768 chunks in ChromaDB) and Bloom's Taxonomy-based adaptive questioning. LLaMA 3.3 70B via Groq generates and evaluates questions with Bengali feedback in under 2 seconds. Built with Python, FastAPI, Gemini Embeddings, PHP and MySQL.</p>
-                    <a href="https://edu-tutor-one.vercel.app/eduhome.html"
-                       target="_blank"
-                       class="visit-link">
-                        
-                        Visit Website
-                    </a>
-                </div>
+        <div class="journey-head reveal">
+            <p class="eyebrow light">My journey</p>
+            <h2 class="big-heading light">Let's go back in time.</h2>
+        </div>
+
+        <div class="journey-grid">
+            <div class="year-display" aria-hidden="true">
+                <div class="year-window"><span class="year-current">2026</span></div>
+                <div class="year-bar"><span></span></div>
             </div>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
-                    <div class="image-slider">
-                        <img src="images/menu1.png" class="active" alt="Beyond the Menu 1">
-                        <img src="images/menu2.png" alt="Beyond the Menu 2">
-                        <img src="images/menu3.png" alt="Beyond the Menu 3">
-                        <img src="images/menu4.png" alt="Beyond the Menu 4">
-                        <img src="images/menu5.png" alt="Beyond the Menu 5">
-                    </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">Beyond the Menu – RFID Ordering &amp; Delivery Robot</h3>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>Restaurant ordering system where diners order by tapping RFID cards, with no app, touchscreen or waiter needed. Two ESP32 terminals and an ESP32 delivery car talk over MQTT to a Python/Tkinter kitchen dashboard with live order status, presence detection and a kitchen watchdog.</p>
-                    <a href="https://github.com/tazimahamed/HCI-project"
-                       target="_blank"
-                       class="visit-link">
-                        View on GitHub
-                    </a>
-                </div>
-            </div>
+            <div class="journey-list">
+                <article class="j-item" data-year="2026">
+                    <span class="j-year-mobile">2026</span>
+                    <span class="j-tag">Experience</span>
+                    <h3>Software Intern, Square InformatiX Ltd.</h3>
+                    <p class="j-meta">Software Department · Oct – Dec 2026 · Mohakhali, Dhaka</p>
+                    <p>Working with the IT company of SQUARE Group under the guidance of a Senior Analyst Programmer, contributing to real-world software in an ISO 9001:2015 certified environment.</p>
+                </article>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
-                    <div class="image-slider">
-                        <img src="images/agro1.jpg" class="active" alt="AgroLink 1">
-                        <img src="images/agro2.jpg" alt="AgroLink 2">
-                        <img src="images/agro3.jpg" alt="AgroLink 3">
-                    </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">AgroLink – Agricultural Marketplace</h3>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>A web platform connecting farmers and customers to buy and sell agricultural products. Built with HTML, CSS, JavaScript, PHP, SQL, AJAX, and JSON.</p>
-                    <a href="https://github.com/HasiburRahman404/AgroLink"
-                       target="_blank"
-                       class="visit-link">
-                        
-                        Visit Website
-                    </a>
-                </div>
-            </div>
+                <article class="j-item" data-year="2026">
+                    <span class="j-year-mobile">2026</span>
+                    <span class="j-tag gold">Achievement</span>
+                    <h3>Final Round, The Infinity AI BuildFest 2026</h3>
+                    <p class="j-meta">CloudCamp Bangladesh × BRAC University</p>
+                    <p>Selected for the final round of a national AI build competition.</p>
+                </article>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
-                    <div class="image-slider">
-                        <img src="images/soil1.jpg" class="active" alt="Soil Health 1">
-                        <img src="images/soil2.jpg" alt="Soil Health 2">
-                    </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">Solar Powered Soil Health Monitor</h3>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>IoT system using ESP8266 and sensors to monitor soil moisture, temperature, and humidity with real-time cloud data.</p>
-    
-            
-                </div>
-            </div>
+                <article class="j-item" data-year="2025">
+                    <span class="j-year-mobile">2025</span>
+                    <span class="j-tag">Projects &amp; Research</span>
+                    <h3>EduTutor BD, Beyond the Menu &amp; low-light detection research</h3>
+                    <p class="j-meta">LLaMA 3.3 70B · RAG · ESP32 · MQTT · YOLOv8m</p>
+                    <p>Built a Bengali AI tutor and a tangible RFID ordering robot, and wrote a paper improving traffic sign detection at night with Zero-DCE++ and YOLOv8m.</p>
+                </article>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
-                    <div class="image-slider">
-                        <img src="images/station1.jpg" class="active" alt="Railway 1">
-                        <img src="images/station2.jpg" alt="Railway 2">
-                    </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">Railway Station Scene</h3>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <p>3D railway station environment built using C++ and OpenGL. Includes platforms, tracks, roads, and environmental objects.</p>
-                
-                <a href="https://github.com/tazimahamed/Graphics_project"
-                       target="_blank"
-                       class="visit-link">
-                        
-                        Visit Website
-                    </a>
-                </div>
-            </div>
+                <article class="j-item" data-year="2024">
+                    <span class="j-year-mobile">2024</span>
+                    <span class="j-tag">Projects</span>
+                    <h3>AgroLink, Soil Health Monitor &amp; more</h3>
+                    <p class="j-meta">PHP · AJAX · ESP8266 · ThingSpeak · OpenGL · Digital Logic</p>
+                    <p>Shipped a farmer-to-customer marketplace, a solar-powered IoT soil monitor, an OpenGL railway scene, and a 4-way traffic signal controller on hardware.</p>
+                </article>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-image-container">
+                <article class="j-item" data-year="2023">
+                    <span class="j-year-mobile">2023</span>
+                    <span class="j-tag">Education</span>
+                    <h3>B.Sc. in Computer Science &amp; Engineering, AIUB</h3>
+                    <p class="j-meta">American International University-Bangladesh · 2023 – Present</p>
+                    <p>Coursework across ML, Computer Vision, NLP, Image Processing, Data Structures, Operating Systems and Software Engineering. Built "Taylor", an online dress store in Java &amp; C#.</p>
+                    <span class="j-badge">CGPA 3.74</span>
+                </article>
+
+                <article class="j-item" data-year="2020">
+                    <span class="j-year-mobile">2020</span>
+                    <span class="j-tag">Education</span>
+                    <h3>Higher Secondary Certificate</h3>
+                    <p class="j-meta">Cantonment College Jashore · 2018 – 2020</p>
+                    <span class="j-badge">GPA 5.00</span>
+                </article>
+
+                <article class="j-item" data-year="2018">
+                    <span class="j-year-mobile">2018</span>
+                    <span class="j-tag">Education</span>
+                    <h3>Secondary School Certificate</h3>
+                    <p class="j-meta">Benapole High School · 2016 – 2018</p>
+                    <span class="j-badge">GPA 5.00</span>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= TOP PICKS ================= -->
+<section id="work" class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2 class="big-heading">Top picks.</h2>
+            <p class="body-lg muted">The three projects I'm most proud of.</p>
+        </div>
+
+        <div class="picks">
+            <article class="pick reveal">
+                <span class="pick-num">01</span>
+                <div class="pick-media">
+                    <div class="image-slider">
+                        <img src="images/edu1.png" class="active" alt="EduTutor BD screenshot 1">
+                        <img src="images/edu2.png" alt="EduTutor BD screenshot 2">
+                        <img src="images/edu3.png" alt="EduTutor BD screenshot 3">
+                        <img src="images/edu4.png" alt="EduTutor BD screenshot 4">
+                        <img src="images/edu5.png" alt="EduTutor BD screenshot 5">
+                    </div>
+                </div>
+                <div class="pick-body">
+                    <p class="pick-kicker">AI · NLP · 2025–2026</p>
+                    <h3>EduTutor BD</h3>
+                    <p class="pick-sub">Bengali AI tutor using RAG &amp; LLaMA 3.3 70B</p>
+                    <p>A full-stack tutoring platform for SSC students. RAG over NCTB textbooks (2,768 chunks in ChromaDB) and Bloom's Taxonomy-based adaptive questioning (L1–L6), with Bengali feedback in under 2 seconds.</p>
+                    <ul class="tech"><li>Python</li><li>FastAPI</li><li>LLaMA 3.3 70B</li><li>ChromaDB</li><li>Gemini Embeddings</li><li>PHP/MySQL</li></ul>
+                    <a class="pick-link" href="https://edu-tutor-one.vercel.app/eduhome.html" target="_blank">Visit live site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </article>
+
+            <article class="pick reverse reveal">
+                <span class="pick-num">02</span>
+                <div class="pick-media">
+                    <div class="image-slider">
+                        <img src="images/menu1.png" class="active" alt="Beyond the Menu screenshot 1">
+                        <img src="images/menu2.png" alt="Beyond the Menu screenshot 2">
+                        <img src="images/menu3.png" alt="Beyond the Menu screenshot 3">
+                        <img src="images/menu4.png" alt="Beyond the Menu screenshot 4">
+                        <img src="images/menu5.png" alt="Beyond the Menu screenshot 5">
+                    </div>
+                </div>
+                <div class="pick-body">
+                    <p class="pick-kicker">IoT · HCI · 2025–2026</p>
+                    <h3>Beyond the Menu</h3>
+                    <p class="pick-sub">Tangible RFID ordering &amp; delivery robot</p>
+                    <p>Diners order by tapping RFID cards, with no app, touchscreen or waiter needed. Two ESP32 terminals and an ESP32 delivery car talk over MQTT to a Python kitchen dashboard with five live order states, presence detection and a watchdog.</p>
+                    <ul class="tech"><li>ESP32</li><li>C++ (Arduino)</li><li>MQTT</li><li>Python</li><li>Tkinter</li><li>RC522 RFID</li></ul>
+                    <a class="pick-link" href="https://github.com/tazimahamed/HCI-project" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+                </div>
+            </article>
+
+            <article class="pick reveal">
+                <span class="pick-num">03</span>
+                <div class="pick-media">
+                    <div class="image-slider">
+                        <img src="images/agro1.jpg" class="active" alt="AgroLink screenshot 1">
+                        <img src="images/agro2.jpg" alt="AgroLink screenshot 2">
+                        <img src="images/agro3.jpg" alt="AgroLink screenshot 3">
+                    </div>
+                </div>
+                <div class="pick-body">
+                    <p class="pick-kicker">Web · 2024–2025</p>
+                    <h3>AgroLink</h3>
+                    <p class="pick-sub">Online agricultural marketplace</p>
+                    <p>A web platform connecting customers directly with farmers, with a product catalog, cart, secure order management, and reviews &amp; ratings, all updated live with AJAX and JSON.</p>
+                    <ul class="tech"><li>HTML/CSS</li><li>JavaScript</li><li>PHP</li><li>SQL</li><li>AJAX</li></ul>
+                    <a class="pick-link" href="https://github.com/HasiburRahman404/AgroLink" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- More projects -->
+        <div class="more-head reveal">
+            <h3>More projects</h3>
+        </div>
+        <div class="more-grid">
+            <article class="mini reveal">
+                <div class="mini-media">
+                    <div class="image-slider">
+                        <img src="images/soil1.jpg" class="active" alt="Soil Health Monitor 1">
+                        <img src="images/soil2.jpg" alt="Soil Health Monitor 2">
+                    </div>
+                </div>
+                <div class="mini-body">
+                    <p class="pick-kicker">IoT</p>
+                    <h4>Solar-Powered Soil Health Monitor</h4>
+                    <p>ESP8266 + sensors streaming soil and air data to ThingSpeak with automated alerts.</p>
+                </div>
+            </article>
+
+            <article class="mini reveal">
+                <div class="mini-media">
+                    <div class="image-slider">
+                        <img src="images/station1.jpg" class="active" alt="Railway Station Scene 1">
+                        <img src="images/station2.jpg" alt="Railway Station Scene 2">
+                    </div>
+                </div>
+                <div class="mini-body">
+                    <p class="pick-kicker">Graphics</p>
+                    <h4>Railway Station Scene</h4>
+                    <p>OpenGL / C++ scene with tracks, platforms, buildings, a road and a river.</p>
+                    <a class="mini-link" href="https://github.com/tazimahamed/Graphics_project" target="_blank">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="mini reveal">
+                <div class="mini-media">
                     <div class="image-slider">
                         <img src="images/taylor1.jpg" class="active" alt="Taylor 1">
                         <img src="images/taylor2.jpg" alt="Taylor 2">
                     </div>
-                    <div class="image-overlay">
-                        <h3 class="project-title-overlay">Taylor – Online Dress Store</h3>
+                </div>
+                <div class="mini-body">
+                    <p class="pick-kicker">Desktop App</p>
+                    <h4>Taylor, Online Dress Store</h4>
+                    <p>Java &amp; C# e-commerce app with catalog, cart and secure checkout.</p>
+                    <a class="mini-link" href="https://github.com/tazimahamed/C-_project" target="_blank">GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="mini reveal">
+                <div class="mini-media mini-graphic">
+                    <div class="traffic">
+                        <span class="t-red"></span><span class="t-amber"></span><span class="t-green"></span>
                     </div>
                 </div>
-                <div class="project-details">
-                    <p>E-commerce system developed using Java, C#, and SQL with product catalog, shopping cart, and secure checkout.</p>
-                
-                    <a href="https://github.com/tazimahamed/C-_project"
-                       target="_blank"
-                       class="visit-link">
-                        
-                        Visit Website
-                    </a>
+                <div class="mini-body">
+                    <p class="pick-kicker">Digital Logic</p>
+                    <h4>4-Way Traffic Signal Controller</h4>
+                    <p>555 Timer, 4017 counter and 74LS gates, built and timed on a breadboard.</p>
                 </div>
-            </div>
-
+            </article>
         </div>
     </div>
 </section>
 
-<!-- EDUCATION -->
-
-<section id="education" class="education-section">
+<!-- ================= RESEARCH ================= -->
+<section id="research" class="section research">
     <div class="container">
-        <h2 class="section-title" data-kicker="Background">Education</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>B.Sc in Computer Science & Engineering</h4>
-                    <span class="period">2023 – Present</span>
-                    <p>American International University-Bangladesh</p>
-                    <div class="gpa-badge">CGPA: 3.74</div>
-                </div>
-            </div>
+        <div class="section-head reveal">
+            <p class="eyebrow">Research &amp; recognition</p>
+            <h2 class="big-heading">Beyond the classroom.</h2>
+        </div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Higher Secondary Certificate</h4>
-                    <span class="period">Cantonment College Jashore</span>
-                    <div class="gpa-badge">GPA: 5.00</div>
+        <div class="research-grid">
+            <article class="paper reveal">
+                <div class="paper-top">
+                    <span class="paper-status"><span class="live-dot"></span> Ready for submission</span>
+                    <i class="fas fa-file-lines paper-icon"></i>
                 </div>
-            </div>
+                <h3>Traffic Sign Detection in Low Light: Improved LLE-STD Using YOLOv8m</h3>
+                <p>Integrated Zero-DCE++ image enhancement with YOLOv8m to improve visibility of traffic signs at night. Trained on the CNTSSS dataset (4,062 night-time images) for 46 epochs on an NVIDIA T4, outperforming YOLO-LLTS and LLE-STD.</p>
+                <div class="paper-metrics">
+                    <div><strong>4,062</strong><span>night images</span></div>
+                    <div><strong>46</strong><span>epochs</span></div>
+                    <div><strong>5</strong><span>metrics evaluated</span></div>
+                </div>
+                <ul class="tech"><li>YOLOv8m</li><li>Zero-DCE++</li><li>Kaggle</li><li>NVIDIA T4</li></ul>
+            </article>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Secondary School Certificate</h4>
-                    <span class="period">Benapole High School</span>
-                    <div class="gpa-badge">GPA: 5.00</div>
-                </div>
+            <article class="award reveal">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <p class="pick-kicker">2026</p>
+                <h3>Final Round Selection</h3>
+                <p>The Infinity AI BuildFest 2026, organised by CloudCamp Bangladesh × BRAC University.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <p class="eyebrow">Toolkit</p>
+            <h2 class="big-heading">What I work with.</h2>
+        </div>
+
+        <div class="skill-groups">
+            <div class="skill-group reveal">
+                <div class="sg-icon c1"><i class="fas fa-code"></i></div>
+                <h4>Languages</h4>
+                <div class="chips"><span>Python</span><span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Dart</span><span>PHP</span><span>SQL</span></div>
+            </div>
+            <div class="skill-group reveal">
+                <div class="sg-icon c2"><i class="fas fa-brain"></i></div>
+                <h4>AI / ML</h4>
+                <div class="chips"><span>TensorFlow</span><span>PyTorch</span><span>scikit-learn</span><span>Keras</span><span>OpenCV</span><span>Mediapipe</span><span>YOLO</span><span>RAG</span></div>
+            </div>
+            <div class="skill-group reveal">
+                <div class="sg-icon c3"><i class="fas fa-chart-line"></i></div>
+                <h4>Data</h4>
+                <div class="chips"><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>ChromaDB</span><span>MySQL</span></div>
+            </div>
+            <div class="skill-group reveal">
+                <div class="sg-icon c4"><i class="fas fa-globe"></i></div>
+                <h4>Web &amp; IoT</h4>
+                <div class="chips"><span>HTML/CSS</span><span>Tailwind</span><span>Bootstrap</span><span>FastAPI</span><span>ESP32</span><span>Arduino</span><span>MQTT</span></div>
+            </div>
+            <div class="skill-group reveal">
+                <div class="sg-icon c5"><i class="fas fa-screwdriver-wrench"></i></div>
+                <h4>Tools</h4>
+                <div class="chips"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Google Colab</span><span>Kaggle</span><span>Tinkercad</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-
-
-
-<section id="contact">
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section contact">
     <div class="container">
-        <div class="contact-box">
-            <h2 class="section-title" data-kicker="Contact">Get In Touch</h2>
-            <p class="contact-intro">Interested in collaborating on research, an internship, or a project? I'd be glad to hear from you.</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <p>Email</p>
-                        <a href="mailto:mtazim.j@gmail.com">mtazim.j@gmail.com</a>
-                    </div>
-                </div>
+        <div class="contact-card reveal">
+            <p class="eyebrow light">Contact</p>
+            <h2 class="contact-title">Got a project?<br><em>Let's talk.</em></h2>
+            <a href="mailto:mtazim.j@gmail.com" class="contact-mail">mtazim.j@gmail.com <i class="fas fa-arrow-right"></i></a>
 
-                <div class="contact-item">
-                    <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
-                    <div>
-                        <p>Phone</p>
-                        <a href="tel:+8801703625500">+8801703625500</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon-box"><i class="fab fa-github"></i></div>
-                    <div>
-                        <p>GitHub</p>
-                        <a href="https://github.com/tazimahamed" target="_blank">tazimahamed</a>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon-box"><i class="fab fa-linkedin"></i></div>
-                    <div>
-                        <p>LinkedIn</p>
-                        <a href="https://www.linkedin.com/in/mdtazimahamed" target="_blank">mdtazimahamed</a>
-                    </div>
-                </div>
+            <div class="contact-row">
+                <a href="tel:+8801703625500"><i class="fas fa-phone"></i> +880 1703 625500</a>
+                <a href="https://github.com/tazimahamed" target="_blank"><i class="fab fa-github"></i> tazimahamed</a>
+                <a href="https://www.linkedin.com/in/mdtazimahamed" target="_blank"><i class="fab fa-linkedin-in"></i> mdtazimahamed</a>
             </div>
         </div>
     </div>
@@ -439,17 +421,13 @@
 
 </main>
 
-
 <footer>
-
-<p>© 2026 Md. Tazim Ahamed</p>
-
+    <div class="container footer-inner">
+        <p>© 2026 Md. Tazim Ahamed</p>
+        <a href="#home" class="to-top">Back to top <i class="fas fa-arrow-up"></i></a>
+    </div>
 </footer>
 
-
-
-
-<script src="portfolio.js"></script>
-
+<script src="portfolio.js?v=4"></script>
 </body>
 </html>
