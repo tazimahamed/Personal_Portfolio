@@ -4,25 +4,27 @@
    ========================================================= */
 
 :root {
-    --bg: #0d0f13;
-    --bg-alt: #111419;
-    --surface: #161a20;
-    --surface-2: #1b2028;
-    --border: #252b35;
-    --border-strong: #343c48;
+    --bg: #f8f9fc;
+    --bg-alt: #eef2f9;
+    --surface: #ffffff;
+    --surface-2: #f3f5fa;
+    --border: #e2e7f0;
+    --border-strong: #c9d2e1;
 
-    --text: #e9ebef;
-    --text-muted: #9aa2ae;
-    --text-faint: #6b7380;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-faint: #64748b;
 
-    --accent: #7c93f5;          /* calm periwinkle blue */
-    --accent-soft: rgba(124, 147, 245, 0.12);
-    --accent-line: rgba(124, 147, 245, 0.35);
+    --accent: #4f46e5;          /* indigo */
+    --accent-2: #0ea5e9;        /* sky, used only in gradients */
+    --accent-soft: rgba(79, 70, 229, 0.08);
+    --accent-line: rgba(79, 70, 229, 0.30);
 
-    --radius: 14px;
-    --radius-sm: 10px;
+    --radius: 16px;
+    --radius-sm: 12px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 14px -6px rgba(15, 23, 42, 0.08);
+    --shadow: 0 2px 4px rgba(15, 23, 42, 0.04), 0 18px 40px -16px rgba(15, 23, 42, 0.18);
 
     --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-display: 'Playfair Display', Georgia, serif;
@@ -44,7 +46,7 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 
-::selection { background: var(--accent-line); color: #fff; }
+::selection { background: rgba(79, 70, 229, 0.18); color: var(--text); }
 
 .container {
     max-width: 1140px;
@@ -78,7 +80,7 @@ nav {
 
 nav.scrolled {
     padding: 0.75rem 0;
-    background: rgba(13, 15, 19, 0.78);
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom-color: var(--border);
@@ -169,7 +171,7 @@ nav .container {
         linear-gradient(var(--border) 1px, transparent 1px),
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 64px 64px;
-    opacity: 0.35;
+    opacity: 0.6;
     mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
     animation: grid-drift 40s linear infinite;
@@ -182,7 +184,9 @@ nav .container {
     position: absolute;
     width: 620px; height: 620px;
     top: -180px; right: -120px;
-    background: radial-gradient(circle, rgba(124, 147, 245, 0.14), transparent 65%);
+    background:
+        radial-gradient(circle at 35% 40%, rgba(79, 70, 229, 0.16), transparent 60%),
+        radial-gradient(circle at 70% 65%, rgba(14, 165, 233, 0.14), transparent 60%);
     filter: blur(20px);
     animation: float-light 14s ease-in-out infinite alternate;
     pointer-events: none;
@@ -218,7 +222,7 @@ nav .container {
     position: relative;
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: #4ade80;
+    background: #22c55e;
 }
 
 .status-dot::after {
@@ -226,7 +230,7 @@ nav .container {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: #4ade80;
+    background: #22c55e;
     animation: ping 2s var(--ease) infinite;
 }
 
@@ -293,9 +297,10 @@ nav .container {
 .btn:hover i { transform: translateX(4px); }
 
 .btn-primary {
-    color: #0d0f13;
-    background: var(--text);
-    border: 1px solid var(--text);
+    color: #fff;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    box-shadow: 0 8px 20px -8px rgba(79, 70, 229, 0.55);
 }
 
 /* Light sweep on hover */
@@ -304,13 +309,13 @@ nav .container {
     position: absolute;
     top: 0; left: -120%;
     width: 60%; height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(124, 147, 245, 0.35), transparent);
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
     transform: skewX(-20deg);
     transition: left 0.7s var(--ease);
 }
 
 .btn-primary:hover::before { left: 140%; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(233, 235, 239, 0.25); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(79, 70, 229, 0.55); }
 
 .btn-secondary {
     color: var(--text);
@@ -356,7 +361,7 @@ nav .container {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, transparent 0 60%, var(--accent) 85%, transparent 100%);
+    background: conic-gradient(from 0deg, transparent 0 55%, var(--accent-2) 75%, var(--accent) 95%, transparent 100%);
     -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
     mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
     animation: spin 9s linear infinite;
@@ -446,7 +451,7 @@ section { position: relative; padding: 7rem 0; }
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(124, 147, 245, 0.09), transparent 45%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(79, 70, 229, 0.06), transparent 45%);
     opacity: 0;
     transition: opacity 0.4s;
     pointer-events: none;
@@ -472,7 +477,7 @@ section { position: relative; padding: 7rem 0; }
     aspect-ratio: 16 / 9;
     display: grid;
     place-items: center;
-    background: var(--bg);
+    background: linear-gradient(135deg, #eef2ff, #e0f2fe);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     color: var(--text-muted);
@@ -491,8 +496,8 @@ section { position: relative; padding: 7rem 0; }
     width: 68px; height: 68px;
     border-radius: 50%;
     font-size: 1.3rem;
-    color: #0d0f13;
-    background: var(--text);
+    color: #fff;
+    background: var(--accent);
     padding-left: 4px;
     transition: transform 0.4s var(--ease);
     animation: soft-pulse 2.6s ease-out infinite;
@@ -501,8 +506,8 @@ section { position: relative; padding: 7rem 0; }
 .video-frame:hover .video-placeholder span { transform: scale(1.08); }
 
 @keyframes soft-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(233, 235, 239, 0.28); }
-    100% { box-shadow: 0 0 0 22px rgba(233, 235, 239, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.35); }
+    100% { box-shadow: 0 0 0 22px rgba(79, 70, 229, 0); }
 }
 
 .video-placeholder p { color: var(--text-muted); font-size: 0.9rem !important; }
@@ -590,7 +595,7 @@ section { position: relative; padding: 7rem 0; }
     display: flex;
     align-items: flex-end;
     padding: 1.4rem;
-    background: linear-gradient(180deg, rgba(13, 15, 19, 0) 30%, rgba(13, 15, 19, 0.92) 100%);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0) 35%, rgba(15, 23, 42, 0.88) 100%);
 }
 
 .project-title-overlay {
@@ -607,7 +612,7 @@ section { position: relative; padding: 7rem 0; }
     font-size: 0.76rem;
     font-weight: 500;
     letter-spacing: 0.3px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.75);
     opacity: 0;
     transform: translateY(6px);
     transition: opacity 0.35s, transform 0.35s var(--ease);
@@ -674,7 +679,7 @@ section { position: relative; padding: 7rem 0; }
     left: 7px; top: 8px;
     width: 1px;
     height: calc((100% - 16px) * var(--progress, 0));
-    background: var(--accent);
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
 }
 
 .timeline-item { position: relative; padding-left: 3rem; margin-bottom: 1.5rem; }
@@ -684,7 +689,7 @@ section { position: relative; padding: 7rem 0; }
     left: 0; top: 1.9rem;
     width: 15px; height: 15px;
     border-radius: 50%;
-    background: var(--bg-alt);
+    background: var(--surface);
     border: 2px solid var(--border-strong);
     z-index: 1;
     transition: border-color 0.4s, background 0.4s, box-shadow 0.4s;
@@ -841,3 +846,43 @@ footer {
     }
     .reveal, .js .hero [data-enter] { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   LIGHT THEME DEPTH
+   ========================================================= */
+.skill-card, .project-card, .timeline-content, .video-section, .contact-box, .hero-eyebrow { box-shadow: var(--shadow-sm); }
+.project-card:hover, .skill-card:hover, .timeline-item:hover .timeline-content { box-shadow: var(--shadow); border-color: var(--border); }
+.contact-item { background: var(--surface-2); }
+.contact-item:hover { background: var(--surface); box-shadow: var(--shadow-sm); }
+
+/* Surname in a quiet indigo-to-sky gradient */
+.hero-text h1 .name-accent {
+    background: linear-gradient(120deg, var(--accent) 10%, var(--accent-2) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 44px; height: 3px;
+    margin: 1rem auto 0;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* Gentle colour wash behind alternating sections */
+#skills, #education {
+    background:
+        radial-gradient(900px 400px at 10% 0%, rgba(79, 70, 229, 0.05), transparent 60%),
+        radial-gradient(900px 400px at 90% 100%, rgba(14, 165, 233, 0.05), transparent 60%),
+        var(--bg-alt);
+}
+
+.skill-card:nth-child(2) .skill-icon { color: #0ea5e9; background: rgba(14, 165, 233, 0.1); }
+.skill-card:nth-child(3) .skill-icon { color: #0d9488; background: rgba(13, 148, 136, 0.1); }
+.skill-card:nth-child(4) .skill-icon { color: #d97706; background: rgba(217, 119, 6, 0.1); }
+.skill-card:nth-child(5) .skill-icon { color: #db2777; background: rgba(219, 39, 119, 0.08); }
+
+footer { background: var(--surface); }
