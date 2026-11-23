@@ -31,13 +31,22 @@ window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    /* Image slideshows */
+    /* Pause looping CSS animations in sections that are off screen */
+    const loopZones = document.querySelectorAll("section, .marquee, footer");
+    const zoneObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => e.target.classList.toggle("is-offscreen", !e.isIntersecting));
+    }, { rootMargin: "120px 0px" });
+    loopZones.forEach(z => zoneObserver.observe(z));
+
+    /* Image slideshows: only advance while visible and the tab is active */
     document.querySelectorAll(".image-slider").forEach((slider, idx) => {
         const images = slider.querySelectorAll("img");
         if (images.length <= 1) return;
-        let i = 0;
+        let i = 0, visible = false;
+        new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { rootMargin: "100px 0px" }).observe(slider);
         setTimeout(() => {
             setInterval(() => {
+                if (!visible || document.hidden) return;
                 images[i].classList.remove("active");
                 i = (i + 1) % images.length;
                 images[i].classList.add("active");
@@ -210,30 +219,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = [...navLinks].map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
     const yearBar = document.querySelector(".year-bar");
 
+    let lastCurrent = null, lastActive = undefined, lastScrolled = null, lastJp = null;
+
     const onScroll = () => {
+        /* 1) read all layout first */
         const y = window.scrollY;
-        const max = document.documentElement.scrollHeight - window.innerHeight;
         const vh = window.innerHeight;
+        const max = document.documentElement.scrollHeight - vh;
 
-        nav.classList.toggle("scrolled", y > 20);
-        if (progress) progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-
+        let current = null, jp = null;
         if (items.length) {
-            let current = items[0];
-            items.forEach(it => { if (it.getBoundingClientRect().top < vh * 0.55) current = it; });
-            items.forEach(it => it.classList.toggle("current", it === current));
-            setYear(current.dataset.year);
-
+            current = items[0];
+            for (const it of items) { if (it.getBoundingClientRect().top < vh * 0.55) current = it; }
             if (journeyList && yearBar) {
                 const r = journeyList.getBoundingClientRect();
-                const p = Math.min(Math.max((vh * 0.55 - r.top) / r.height, 0), 1);
-                yearBar.style.setProperty("--jp", p.toFixed(3));
+                jp = Math.min(Math.max((vh * 0.55 - r.top) / r.height, 0), 1).toFixed(3);
             }
         }
-
         let active = null;
-        sections.forEach(sec => { if (sec.getBoundingClientRect().top <= 140) active = sec; });
-        navLinks.forEach(a => a.classList.toggle("active", !!active && a.getAttribute("href") === `#${active.id}`));
+        for (const sec of sections) { if (sec.getBoundingClientRect().top <= 140) active = sec; }
+
+        /* 2) then write, only when something changed */
+        const scrolled = y > 20;
+        if (scrolled !== lastScrolled) { nav.classList.toggle("scrolled", scrolled); lastScrolled = scrolled; }
+        if (progress) progress.style.transform = `scaleX(${max > 0 ? (y / max).toFixed(4) : 0})`;
+
+        if (current && current !== lastCurrent) {
+            items.forEach(it => it.classList.toggle("current", it === current));
+            setYear(current.dataset.year);
+            lastCurrent = current;
+        }
+        if (jp !== null && jp !== lastJp) { yearBar.style.setProperty("--jp", jp); lastJp = jp; }
+
+        if (active !== lastActive) {
+            navLinks.forEach(a => a.classList.toggle("active", !!active && a.getAttribute("href") === `#${active.id}`));
+            lastActive = active;
+        }
     };
 
     let ticking = false;

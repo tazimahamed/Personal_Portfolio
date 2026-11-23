@@ -75,9 +75,9 @@ nav {
 
 nav.scrolled {
     padding: .7rem 0;
-    background: rgba(246, 244, 239, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(245, 241, 234, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 1px 0 var(--line);
 }
 
@@ -1589,3 +1589,17 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
     .js .door { opacity: 1; transform: none; }
     .door-panel, .dp-list li, .dp-used, .door-back, .door.active { animation: none !important; opacity: 1; }
 }
+
+/* =========================================================
+   PERFORMANCE (no visual change)
+   ========================================================= */
+/* looping animations rest while their section is off screen */
+.is-offscreen, .is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }
+
+/* keep continuously moving things on their own GPU layer */
+.marquee-track { will-change: transform; }
+.scroll-progress { will-change: transform; }
+.image-slider img { backface-visibility: hidden; }
+
+/* nav sits on its own layer so scrolling content doesn't repaint it */
+nav { transform: translateZ(0); }
