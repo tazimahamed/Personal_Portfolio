@@ -219,7 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = [...navLinks].map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
     const yearBar = document.querySelector(".year-bar");
 
-    let lastCurrent = null, lastActive = undefined, lastScrolled = null, lastJp = null;
+    let lastCurrent = null, lastActive = undefined, lastScrolled = null, lastJp = null, lastNavT = null;
+    const hero = document.querySelector(".hero");
 
     const onScroll = () => {
         /* 1) read all layout first */
@@ -239,9 +240,26 @@ document.addEventListener("DOMContentLoaded", () => {
         let active = null;
         for (const sec of sections) { if (sec.getBoundingClientRect().top <= 140) active = sec; }
 
+        /* how much the sky under the nav has turned to day: 0 dark → 1 light */
+        let navT = 1;
+        if (hero) {
+            const hb = hero.getBoundingClientRect();
+            const navBottom = nav.offsetHeight;
+            const fadeStart = hb.top + hb.height * 0.45;   // sky starts lightening here
+            const fadeEnd = hb.top + hb.height * 0.82;     // fully light by here
+            navT = Math.min(Math.max((navBottom - fadeStart) / (fadeEnd - fadeStart), 0), 1).toFixed(2);
+        }
+
         /* 2) then write, only when something changed */
         const scrolled = y > 20;
         if (scrolled !== lastScrolled) { nav.classList.toggle("scrolled", scrolled); lastScrolled = scrolled; }
+        if (navT !== lastNavT) {
+            nav.style.setProperty("--nav-t", navT);
+            /* text flips faster around the middle so it never sits grey-on-grey */
+            const tx = Math.min(Math.max((navT - 0.45) / 0.3, 0), 1).toFixed(2);
+            nav.style.setProperty("--nav-tx", tx);
+            lastNavT = navT;
+        }
         if (progress) progress.style.transform = `scaleX(${max > 0 ? (y / max).toFixed(4) : 0})`;
 
         if (current && current !== lastCurrent) {

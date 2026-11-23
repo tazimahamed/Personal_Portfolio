@@ -18,7 +18,7 @@
     --accent-soft: rgba(224, 53, 60, 0.09);
     --gold: #e0353c;
 
-    --navy: #0c1510;
+    --navy: #15241c;
     --navy-2: #132019;
     --navy-line: rgba(255, 255, 255, 0.1);
 
@@ -1610,9 +1610,9 @@ nav { transform: translateZ(0); }
 .hero {
     color: #eef3ef;
     background:
-        radial-gradient(45% 55% at 84% 26%, rgba(224, 53, 60, .30), transparent 65%),
-        radial-gradient(40% 50% at 4% 8%, rgba(47, 125, 91, .38), transparent 70%),
-        linear-gradient(180deg, #0a1410 0%, #0d1913 58%, #1c2c23 72%, #3f5347 84%, #8c9c91 93%, #c9d4cb 98%, #eef1ea 100%);
+        radial-gradient(45% 55% at 84% 26%, rgba(224, 53, 60, .34), transparent 65%),
+        radial-gradient(40% 50% at 4% 8%, rgba(72, 160, 118, .40), transparent 70%),
+        linear-gradient(180deg, #1b2e24 0%, #1c3026 55%, #2a3f33 70%, #4b6154 83%, #93a499 93%, #cbd6cd 98%, #eef1ea 100%);
 }
 
 /* twinkling stars, only in the night part */
@@ -1680,13 +1680,6 @@ nav { transform: translateZ(0); }
 .scroll-hint span { background: #16211b; }
 .photo-card { box-shadow: 0 30px 60px -24px rgba(224, 53, 60, .45), 0 0 0 1px rgba(255, 255, 255, .06); }
 
-/* nav: light text over the night sky, dark once it turns solid */
-nav:not(.scrolled) .logo { color: #f3f7f4; }
-nav:not(.scrolled) .nav-menu a { color: #b3c3b8; }
-nav:not(.scrolled) .nav-menu a:hover,
-nav:not(.scrolled) .nav-menu a.active { color: #ffffff; }
-nav:not(.scrolled) .nav-cta { background: #f3f7f4; color: #0c1510; }
-nav:not(.scrolled) .nav-cta:hover { background: var(--accent); color: #fff; }
 
 /* sections and accents */
 .marquee {
@@ -1718,10 +1711,30 @@ nav:not(.scrolled) .nav-cta:hover { background: var(--accent); color: #fff; }
         background:
             radial-gradient(70% 35% at 90% 12%, rgba(224, 53, 60, .30), transparent 65%),
             radial-gradient(60% 30% at 0% 0%, rgba(47, 125, 91, .38), transparent 70%),
-            linear-gradient(180deg, #0a1410 0%, #0d1913 52%, #1c2c23 66%, #3f5347 80%, #8c9c91 92%, #c9d4cb 97%, #eef1ea 100%);
+            linear-gradient(180deg, #1b2e24 0%, #1c3026 50%, #2a3f33 65%, #4b6154 79%, #93a499 91%, #cbd6cd 97%, #eef1ea 100%);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .hero::before, .hero::after { animation: none; }
 }
+
+/* =========================================================
+   NAV — blends from night to day as you scroll
+   --nav-t goes 0 (over the dark sky) → 1 (over the light page)
+   ========================================================= */
+nav { --nav-t: 0; --nav-tx: 0; }
+nav.scrolled {
+    background: color-mix(in srgb, rgb(238 241 234 / .95) calc(var(--nav-t) * 100%), rgb(24 42 33 / .62));
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--line) calc(var(--nav-t) * 100%), rgb(255 255 255 / .06));
+    transition: padding .4s var(--ease), background-color .25s linear, box-shadow .25s linear;
+}
+.logo { color: color-mix(in srgb, var(--ink) calc(var(--nav-tx) * 100%), #f3f7f4); transition: color .25s linear; }
+.nav-menu a { color: color-mix(in srgb, var(--muted) calc(var(--nav-tx) * 100%), #b9c9be); }
+.nav-menu a:hover, .nav-menu a.active { color: color-mix(in srgb, var(--ink) calc(var(--nav-tx) * 100%), #ffffff); }
+.nav-cta {
+    background: color-mix(in srgb, var(--ink) calc(var(--nav-tx) * 100%), #f3f7f4);
+    color: color-mix(in srgb, #ffffff calc(var(--nav-tx) * 100%), #15241c);
+    transition: transform .3s var(--ease), background-color .25s linear, color .25s linear;
+}
+.nav-cta:hover { background: var(--accent); color: #fff; }
