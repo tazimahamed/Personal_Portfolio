@@ -942,3 +942,28 @@ footer { padding: 2.2rem 0; }
     .edu-score { min-width: 88px; padding: .8rem; }
     .edu-score strong { font-size: 1.6rem; }
 }
+
+/* Award tied to EduTutor BD */
+.pick-award {
+    display: inline-flex; align-items: center; gap: .5rem;
+    margin-bottom: .9rem;
+    padding: .35rem .85rem;
+    font-size: .8rem; font-weight: 700;
+    color: #fff;
+    background: var(--ink);
+    border-radius: 999px;
+}
+.pick-award i { color: var(--accent); }
+
+.award strong { color: #fff; }
+.award-link {
+    position: relative; z-index: 1;
+    display: inline-flex; align-items: center; gap: .5rem;
+    margin-top: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+    transition: gap .3s var(--ease), color .3s;
+}
+.award-link:hover { gap: .8rem; color: var(--accent); }
