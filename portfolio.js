@@ -229,28 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const journeyList = document.querySelector(".journey-list");
     let shownYear = yearEl ? yearEl.textContent : "";
 
-    /* Year shortcuts: one chip per year, jumps to that year's first milestone */
-    const chipWrap = document.querySelector(".year-chips");
-    const chips = [];
-    if (chipWrap) {
-        [...new Set(items.map(it => it.dataset.year))].forEach(year => {
-            const b = document.createElement("button");
-            b.type = "button";
-            b.className = "year-chip" + (year === shownYear ? " active" : "");
-            b.textContent = year;
-            b.setAttribute("aria-label", `Jump to ${year}`);
-            b.addEventListener("click", () => {
-                const target = items.find(it => it.dataset.year === year);
-                if (!target) return;
-                const top = target.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.3;
-                if (window.__lenis) window.__lenis.scrollTo(top, { duration: 1.1 });
-                else window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
-            });
-            chipWrap.appendChild(b);
-            chips.push(b);
-        });
-    }
-
     /* Milestones glide in as they reach the screen */
     const itemIn = new IntersectionObserver(entries => {
         entries.forEach(e => {
@@ -264,7 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const setYear = year => {
         if (!yearEl || year === shownYear) return;
         shownYear = year;
-        chips.forEach(c => c.classList.toggle("active", c.textContent === year));
         yearEl.classList.add("out-up");
         setTimeout(() => {
             yearEl.textContent = year;

@@ -1869,21 +1869,6 @@ nav.scrolled {
 .year-bar { background: #dbe4dc; }
 .year-bar span { background: linear-gradient(90deg, var(--accent), #48a076); }
 
-/* year shortcuts */
-.year-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
-.year-chip {
-    padding: .45rem .95rem;
-    font: 600 .88rem var(--sans);
-    color: var(--muted);
-    background: rgba(255, 255, 255, .7);
-    border: 1px solid #d7e1d8;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease);
-}
-.year-chip:hover { color: var(--ink); border-color: #b9c8bd; transform: translateY(-2px); }
-.year-chip.active { color: #fff; background: var(--ink); border-color: var(--ink); }
-.year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* timeline rail with a fill that follows the scroll */
 .journey-list { position: relative; padding-left: 2.6rem; gap: 1.1rem; }
@@ -1997,3 +1982,6 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-stopped { overflow: hidden; }
 .hero::before, .hero::after { will-change: opacity; }
 .photo-card { will-change: transform; }
+
+/* progress line under the big year is hidden */
+.year-bar { display: none; }
