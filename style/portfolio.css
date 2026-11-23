@@ -1346,182 +1346,246 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
 .door-hint { display: inline-flex; align-items: center; gap: .55rem; font-size: .98rem; }
 .door-hint i { color: var(--accent); }
 
+.door-stage { position: relative; }
+
 .doors {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2.6rem;
+    gap: 1.8rem;
     align-items: end;
 }
 
-.door { outline: none; cursor: pointer; text-align: center; }
-.door:focus-visible .door-frame { box-shadow: 0 0 0 3px var(--accent-2), var(--shadow); }
+.door {
+    all: unset;
+    display: flex; flex-direction: column; align-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .45s var(--ease), transform .6s var(--ease);
+}
+.door:focus-visible .door-arch { box-shadow: 0 0 0 3px var(--accent-2), var(--shadow); }
 
-/* arch-shaped opening */
-.door-frame {
+/* stone frame */
+.door-arch {
     position: relative;
+    width: 100%;
     aspect-ratio: 3 / 5;
-    border-radius: 999px 999px 18px 18px;
-    perspective: 1300px;
-    background: #120e0c;
-    box-shadow: inset 0 0 0 6px #2a2420, var(--shadow);
+    padding: 9px;
+    border-radius: 999px 999px 10px 10px;
+    background: linear-gradient(180deg, #3b342f, #1f1a17);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, .08), 0 24px 40px -22px rgba(40, 28, 20, .55);
+    perspective: 1200px;
+    transition: transform .6s var(--ease), box-shadow .6s;
 }
 
-/* what's behind the door */
-.door-inside {
-    position: absolute;
-    inset: 6px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1rem;
-    padding: 2.2rem 1rem 1.4rem;
-    border-radius: 999px 999px 13px 13px;
-    overflow: hidden;
+/* warm room behind the door */
+.door-glow {
+    position: absolute; inset: 9px;
+    border-radius: 999px 999px 5px 5px;
     background:
-        radial-gradient(120% 70% at 50% 100%, rgba(245, 158, 66, .55), transparent 70%),
-        radial-gradient(90% 60% at 50% 30%, rgba(228, 80, 47, .25), transparent 70%),
-        #1d1714;
-}
-.door-inside::before {
-    /* light spilling out once open */
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(60% 40% at 50% 85%, rgba(255, 214, 160, .55), transparent 70%);
-    opacity: 0;
-    transition: opacity .8s var(--ease) .2s;
-}
-.door-inside-title {
-    position: relative;
-    font-size: .74rem; font-weight: 700;
-    letter-spacing: .14em; text-transform: uppercase;
-    color: #ffcfa6;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity .5s var(--ease), transform .5s var(--ease);
-}
-.door-chips {
-    position: relative;
-    list-style: none;
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: .4rem;
-}
-.door-chips li {
-    padding: .32rem .7rem;
-    font-size: .78rem; font-weight: 600;
-    color: #1a1614;
-    background: #fff4e8;
-    border-radius: 999px;
-    box-shadow: 0 6px 14px -8px rgba(0, 0, 0, .6);
-    opacity: 0;
-    transform: translateY(14px) scale(.9);
-    transition: opacity .45s var(--ease), transform .55s var(--ease);
+        radial-gradient(70% 45% at 50% 100%, rgba(255, 207, 150, .95), transparent 70%),
+        radial-gradient(90% 70% at 50% 40%, rgba(245, 158, 66, .55), transparent 75%),
+        #2a1d14;
 }
 
-/* the door itself */
+/* the door leaf: coloured, ribbed, shaded */
 .door-leaf {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: .7rem;
-    border-radius: 999px 999px 18px 18px;
+    position: absolute; inset: 9px;
+    border-radius: 999px 999px 5px 5px;
     background:
-        linear-gradient(90deg, rgba(255, 255, 255, .06), transparent 30%, transparent 70%, rgba(0, 0, 0, .25)),
-        linear-gradient(180deg, #3a2e27, #241c18);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), inset -10px 0 24px rgba(0, 0, 0, .35);
+        linear-gradient(90deg, rgba(255, 255, 255, .10), transparent 18%, transparent 78%, rgba(0, 0, 0, .28)),
+        linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 30%, rgba(0, 0, 0, .25)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .07) 0 2px, rgba(0, 0, 0, .06) 2px 4px, transparent 4px 9px),
+        var(--door);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), inset -6px 0 16px rgba(0, 0, 0, .3);
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 1.1s cubic-bezier(.65, .02, .22, 1), box-shadow .6s;
-    z-index: 2;
+    transition: transform 1s cubic-bezier(.6, .02, .2, 1);
 }
-.door-panel {
+
+/* brass name plate */
+.door-plate {
     position: absolute;
-    inset: 14% 16% 10%;
-    border-radius: 999px 999px 8px 8px;
-    border: 1px solid rgba(255, 255, 255, .08);
-    box-shadow: inset 0 0 0 6px rgba(0, 0, 0, .08);
-    pointer-events: none;
+    top: 27%; left: 50%;
+    width: 68%;
+    transform: translateX(-50%);
+    padding: .45rem .3rem;
+    text-align: center;
+    border-radius: 3px;
+    background: linear-gradient(160deg, #f6dc94 0%, #d9a945 45%, #f3d27e 60%, #b9852d 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .6);
+    overflow: hidden;
 }
-.door-icon {
-    position: relative;
-    width: 54px; height: 54px;
-    display: grid; place-items: center;
-    font-size: 1.25rem;
-    color: #fff;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    box-shadow: 0 10px 22px -10px rgba(228, 80, 47, .8);
+.door-plate span {
+    font-size: .66rem; font-weight: 800;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: #4a3213;
+    text-shadow: 0 1px 0 rgba(255, 240, 200, .6);
 }
-.door-name { position: relative; font-size: 1.12rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
-.door-count {
-    position: relative;
-    padding: .2rem .65rem;
-    font-size: .72rem; font-weight: 600;
-    color: #d6ccc3;
-    border: 1px solid rgba(255, 255, 255, .16);
-    border-radius: 999px;
-}
-.door-knob {
-    position: absolute;
-    right: 12%; top: 56%;
-    width: 11px; height: 11px;
+.door-plate::before, .door-plate::after {
+    content: '';
+    position: absolute; top: 50%;
+    width: 4px; height: 4px; margin-top: -2px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #ffe2b0, #c98a2e 70%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    background: #8a6224;
+}
+.door-plate::before { left: 5px; }
+.door-plate::after { right: 5px; }
+
+/* lever handle */
+.door-handle {
+    position: absolute;
+    top: 57%; right: 13%;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffe7ad, #b98428 75%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+}
+.door-handle::after {
+    content: '';
+    position: absolute;
+    top: 3px; right: 2px;
+    width: 22px; height: 4px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #ffe3a1, #b5802a);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .45);
+    transform-origin: right center;
+    transition: transform .35s var(--ease);
 }
 
-.door-peek {
+.door-caption {
     margin-top: 1rem;
-    font-size: .84rem; font-weight: 500;
-    color: var(--muted);
-    transition: opacity .4s;
+    font-size: 1rem; font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+}
+.door-caption em {
+    display: block;
+    font-family: var(--sans); font-style: normal;
+    font-size: .78rem; font-weight: 500;
+    color: var(--faint);
 }
 
-/* idle: a tiny "ajar" wobble on hover-capable screens before opening */
+/* hover: handle turns, door opens a crack, light spills out */
 @media (hover: hover) {
-    .door:hover .door-leaf { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), -14px 0 30px -12px rgba(245, 158, 66, .6); }
-    .door:hover .door-leaf, .door.open .door-leaf { transform: rotateY(-98deg); }
-    .door:hover .door-inside::before, .door.open .door-inside::before { opacity: 1; }
-    .door:hover .door-inside-title, .door.open .door-inside-title { opacity: 1; transform: none; transition-delay: .35s; }
-    .door:hover .door-chips li, .door.open .door-chips li { opacity: 1; transform: none; transition-delay: calc(var(--c) * 60ms + .45s); }
-    .door:hover .door-peek, .door.open .door-peek { opacity: 0; }
+    .door:hover .door-arch { transform: translateY(-6px); }
+    .door:hover .door-leaf { transform: rotateY(-24deg); }
+    .door:hover .door-handle::after { transform: rotate(-28deg); }
+}
+.door:focus-visible .door-leaf { transform: rotateY(-24deg); }
+
+/* ---------- focused view ---------- */
+.door-panels, .door-back { display: none; }
+
+.door-stage.focused {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    grid-template-rows: auto auto;
+    column-gap: clamp(2rem, 6vw, 5rem);
+    row-gap: 1.4rem;
+    align-items: center;
+}
+.door-stage.focused .doors { grid-template-columns: 1fr; grid-column: 1; grid-row: 1; }
+.door-stage.focused .door:not(.active) { display: none; }
+.door-stage.focused .door.active { animation: door-step 0.7s var(--ease); cursor: default; }
+.door-stage.focused .door.active .door-arch { transform: none; }
+.door-stage.focused .door.active .door-leaf { transform: rotateY(-58deg); }
+.door-stage.focused .door.active .door-handle::after { transform: rotate(-28deg); }
+.door-stage.focused .door.active .door-caption { display: none; }
+
+.door-stage.focused .door-panels { display: block; grid-column: 2; grid-row: 1 / span 2; }
+.door-stage.focused .door-back {
+    display: inline-flex; align-items: center; gap: .55rem;
+    grid-column: 1; grid-row: 2; justify-self: center;
+    padding: .7rem 1.3rem;
+    font: 600 .9rem var(--sans);
+    color: #fff;
+    background: var(--ink);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    animation: fade-up .6s var(--ease) .3s both;
+    transition: background .3s, transform .3s var(--ease);
+}
+.door-back:hover { background: var(--accent); transform: translateY(-2px); }
+.door-back:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+/* fading out the doors that weren't picked */
+.door-stage.leaving .door:not(.active) { opacity: 0; transform: scale(.92) translateY(10px); pointer-events: none; }
+
+@keyframes door-step { from { opacity: 0; transform: translateX(40px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* panel */
+.door-panel { animation: panel-in .75s var(--ease) .15s both; }
+@keyframes panel-in { from { opacity: 0; transform: translateX(36px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+.dp-kicker { font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; }
+.door-panel h3 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+.dp-sub { margin: .5rem 0 1rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); color: var(--door-color, var(--muted)); }
+.dp-desc { max-width: 560px; color: var(--muted); font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+.dp-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1.6rem; }
+.dp-list li {
+    position: relative;
+    padding-left: 2.1rem;
+    font-size: 1rem; font-weight: 500;
+    color: var(--ink-2);
+    opacity: 0;
+    animation: fade-up .55s var(--ease) both;
+}
+.dp-list li:nth-child(1) { animation-delay: .35s; }
+.dp-list li:nth-child(2) { animation-delay: .43s; }
+.dp-list li:nth-child(3) { animation-delay: .51s; }
+.dp-list li:nth-child(4) { animation-delay: .59s; }
+.dp-list li:nth-child(5) { animation-delay: .67s; }
+.dp-list li:nth-child(6) { animation-delay: .75s; }
+.dp-list li::before {
+    content: '\2713';
+    position: absolute; left: 0; top: .05rem;
+    width: 1.35rem; height: 1.35rem;
+    display: grid; place-items: center;
+    font-size: .72rem; font-weight: 800;
+    color: #fff;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
 
-.door.open .door-leaf { transform: rotateY(-98deg); }
-.door.open .door-inside::before { opacity: 1; }
-.door.open .door-inside-title { opacity: 1; transform: none; transition-delay: .35s; }
-.door.open .door-chips li { opacity: 1; transform: none; transition-delay: calc(var(--c) * 60ms + .45s); }
-.door.open .door-peek { opacity: 0; }
+.dp-used {
+    display: inline-flex; flex-wrap: wrap; align-items: center; gap: .6rem;
+    padding: .6rem 1rem;
+    font-size: .9rem; font-weight: 600;
+    color: var(--ink-2);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    animation: fade-up .55s var(--ease) .85s both;
+}
+.dp-used span { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
 
-/* doors rise in one after another */
-.js .door { opacity: 0; transform: translateY(40px); transition: opacity .8s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--k) * 110ms); }
+/* doors rise in on scroll */
+.js .door { opacity: 0; transform: translateY(40px); transition-delay: calc(var(--k) * 110ms); }
 .js .doors.in-view .door { opacity: 1; transform: none; }
+.js .door-stage.leaving .door:not(.active) { opacity: 0; transform: scale(.92) translateY(10px); transition-delay: 0s; }
 
+/* ---------- responsive ---------- */
 @media (max-width: 1080px) {
     .doors { grid-template-columns: repeat(3, 1fr); row-gap: 2.4rem; }
 }
+@media (max-width: 760px) {
+    .door-stage.focused { grid-template-columns: 1fr; row-gap: 1.6rem; }
+    .door-stage.focused .doors { grid-row: 1; justify-self: center; width: min(62%, 220px); }
+    .door-stage.focused .door-back { grid-row: 2; }
+    .door-stage.focused .door-panels { grid-column: 1; grid-row: 3; }
+}
 @media (max-width: 640px) {
-    .doors { grid-template-columns: repeat(2, 1fr); gap: 1rem; row-gap: 2rem; }
-    .door-frame { aspect-ratio: 3 / 4.6; }
-    .door-inside { padding: 1.8rem .6rem 1rem; gap: .7rem; }
-    .door-chips li { font-size: .7rem; padding: .26rem .55rem; }
-    .door-icon { width: 46px; height: 46px; font-size: 1.05rem; }
-    .door-name { font-size: 1rem; }
-    .door:last-child { grid-column: 1 / -1; width: calc(50% - .5rem); justify-self: center; }
+    .doors { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; row-gap: 1.8rem; }
+    .door:last-child { grid-column: 1 / -1; width: calc(50% - .6rem); justify-self: center; }
+    .door-stage.focused .door:last-child { width: 100%; }
+    .door-plate span { font-size: .58rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .door-leaf { transition: none; }
+    .door-leaf, .door-arch { transition: none; }
     .js .door { opacity: 1; transform: none; }
+    .door-panel, .dp-list li, .dp-used, .door-back, .door.active { animation: none !important; opacity: 1; }
 }
-
-/* show only plain wood on the back of an open door */
-.door-leaf > * { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.door-leaf::after {
-    content: '';
-    position: absolute; inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #1c1512, #2c231e);
-    transform: rotateY(180deg) translateZ(1px);
-    backface-visibility: hidden; -webkit-backface-visibility: hidden;
-}
-@media (max-width: 1080px) { .doors { gap: 2.4rem; } }
-@media (max-width: 640px)  { .doors { gap: 1.6rem; row-gap: 2rem; } .door:last-child { width: calc(50% - .8rem); } }
-@media (max-width: 640px) { .door.open .door-leaf { transform: rotateY(-78deg); } }
-

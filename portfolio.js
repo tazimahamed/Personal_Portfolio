@@ -110,36 +110,58 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.6 });
     document.querySelectorAll(".stat-num").forEach(el => countObserver.observe(el));
-    /* Skills doors */
-    const doorsWrap = document.querySelector(".doors");
-    if (doorsWrap) {
+    /* Skills doors: pick one to step inside */
+    const stage = document.querySelector(".door-stage");
+    if (stage) {
+        const doorsWrap = stage.querySelector(".doors");
+        const doors = [...stage.querySelectorAll(".door")];
+        const panels = [...stage.querySelectorAll(".door-panel")];
+        const back = stage.querySelector(".door-back");
+        let busy = false;
+
         new IntersectionObserver((entries, obs) => {
             entries.forEach(e => { if (e.isIntersecting) { doorsWrap.classList.add("in-view"); obs.disconnect(); } });
         }, { threshold: 0.15 }).observe(doorsWrap);
 
-        const doors = doorsWrap.querySelectorAll(".door");
-        const setOpen = (door, open) => {
-            door.classList.toggle("open", open);
-            door.setAttribute("aria-expanded", String(open));
+        const keepInView = () => {
+            const top = stage.getBoundingClientRect().top;
+            if (top < 70 || top > window.innerHeight * 0.45) {
+                window.scrollTo({ top: top + window.scrollY - 110, behavior: reduceMotion ? "auto" : "smooth" });
+            }
         };
-        doors.forEach(door => {
-            door.addEventListener("click", () => setOpen(door, !door.classList.contains("open")));
-            door.addEventListener("keydown", e => {
-                if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(door, !door.classList.contains("open")); }
-            });
-        });
 
-        /* Touch screens have no hover, so open each door as it scrolls into view */
-        if (!window.matchMedia("(hover: hover)").matches) {
-            const autoOpen = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    if (!e.isIntersecting) return;
-                    setTimeout(() => setOpen(e.target, true), 500);
-                    autoOpen.unobserve(e.target);
-                });
-            }, { threshold: 0.7 });
-            doors.forEach(d => autoOpen.observe(d));
-        }
+        const openDoor = door => {
+            if (busy || stage.classList.contains("focused")) return;
+            busy = true;
+            door.classList.add("active");
+            door.setAttribute("aria-expanded", "true");
+            stage.classList.add("leaving");
+            setTimeout(() => {
+                stage.classList.remove("leaving");
+                stage.classList.add("focused");
+                panels.forEach(p => { p.hidden = p.dataset.panel !== door.dataset.door; });
+                stage.style.setProperty("--door-color", getComputedStyle(door).getPropertyValue("--door"));
+                keepInView();
+                back.focus({ preventScroll: true });
+                busy = false;
+            }, reduceMotion ? 0 : 380);
+        };
+
+        const closeDoor = () => {
+            if (!stage.classList.contains("focused")) return;
+            const active = stage.querySelector(".door.active");
+            stage.classList.remove("focused");
+            panels.forEach(p => { p.hidden = true; });
+            doors.forEach(d => { d.classList.remove("active"); d.setAttribute("aria-expanded", "false"); });
+            keepInView();
+            if (active) active.focus({ preventScroll: true });
+        };
+
+        doors.forEach(door => door.addEventListener("click", () => {
+            if (door.classList.contains("active")) closeDoor(); else openDoor(door);
+        }));
+        back.addEventListener("click", closeDoor);
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeDoor(); });
     }
 
     /* Journey: click a milestone to open its details */
