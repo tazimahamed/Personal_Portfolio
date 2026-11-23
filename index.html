@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=9">
+<link rel="stylesheet" href="style/portfolio.css?v=10">
 </head>
 
 <body>
@@ -86,7 +86,23 @@
     <div class="container about-grid">
         <div class="about-copy reveal">
             <p class="eyebrow">About me</p>
-            <h2 class="big-heading">From research idea to <em>real-world</em> product.</h2>
+            <h2 class="about-heading" aria-label="From research idea to real-world product.">
+                <span class="ah-line" aria-hidden="true">
+                    <span class="w" style="--i:0">From</span>
+                    <span class="w ah-outline" style="--i:1">research</span>
+                    <span class="w ah-outline" style="--i:2">idea</span>
+                    <span class="w ah-arrow" style="--i:3"><i class="fas fa-arrow-right"></i></span>
+                </span>
+                <span class="ah-line" aria-hidden="true">
+                    <span class="w" style="--i:4">to</span>
+                    <span class="w ah-highlight" style="--i:5">real-world
+                        <svg class="ah-scribble" viewBox="0 0 300 24" preserveAspectRatio="none"><path d="M3 15 C 60 5, 120 4, 180 10 S 270 20, 297 8"/></svg>
+                    </span>
+                </span>
+                <span class="ah-line" aria-hidden="true">
+                    <span class="w" style="--i:6">product.</span>
+                </span>
+            </h2>
 
             <p class="about-lead">
                 I'm a Computer Science &amp; Engineering undergraduate at American International University-Bangladesh
@@ -520,6 +536,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=9"></script>
+<script src="portfolio.js?v=10"></script>
 </body>
 </html>
