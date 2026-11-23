@@ -1251,45 +1251,123 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
    ========================================================= */
 .contact-text { max-width: 470px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.8rem; }
 
-.open-to { margin-bottom: 2rem; }
-.open-label {
-    display: inline-flex; align-items: center; gap: .55rem;
-    margin-bottom: .8rem;
-    font-size: .76rem; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: #a89d94;
-}
-.open-to ul { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; }
-.open-to li {
-    padding: .4rem .9rem;
-    font-size: .86rem; font-weight: 600;
-    color: #f1e7dc;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .14);
-    border-radius: 999px;
-}
 
-.contact-actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
-
-.copy-email, .contact-cv {
-    display: inline-flex; align-items: center; gap: .55rem;
-    padding: .95rem 1.4rem;
-    font-size: .95rem; font-weight: 600;
-    color: #fff;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background .3s, border-color .3s, color .3s, transform .3s var(--ease);
-}
-.copy-email:hover, .contact-cv:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .5); transform: translateY(-2px); }
-.copy-email.copied { color: #1a1614; background: #b7f0c8; border-color: #b7f0c8; }
-.copy-email i, .contact-cv i { font-size: .85rem; }
-
-.contact-note { margin-top: 1.1rem; font-size: .86rem; color: #a89d94; }
-
-.cl-value small { margin-left: .4rem; font-size: .78rem; font-weight: 500; color: #a89d94; }
 
 @media (max-width: 560px) {
     .contact-actions > * { flex: 1 1 100%; justify-content: center; }
+}
+
+/* =========================================================
+   CONTACT LINK CARDS
+   ========================================================= */
+.c-links { position: relative; display: flex; flex-direction: column; gap: .75rem; }
+
+.c-link {
+    position: relative;
+    display: flex; align-items: center; gap: 1.1rem;
+    padding: 1.05rem 1.2rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .09);
+    overflow: hidden;
+    isolation: isolate;
+    outline: none;
+    transition: border-color .4s, transform .5s var(--ease), box-shadow .5s;
+}
+
+/* colour wipe from the left on hover */
+.c-link::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg, var(--brand), color-mix(in srgb, var(--brand) 55%, #1a1614));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .55s var(--ease);
+    z-index: -1;
+}
+.c-link:hover, .c-link:focus-visible { border-color: transparent; transform: translateX(6px); box-shadow: 0 18px 36px -18px var(--brand); }
+.c-link:hover::before, .c-link:focus-visible::before { transform: scaleX(1); }
+.c-link:focus-visible { box-shadow: 0 0 0 2px #fff, 0 18px 36px -18px var(--brand); }
+
+.c-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    font-size: 1.15rem;
+    color: var(--brand);
+    background: color-mix(in srgb, var(--brand) 16%, transparent);
+    border-radius: 14px;
+    transition: transform .55s var(--ease), background .4s, color .4s;
+}
+.c-link:hover .c-icon, .c-link:focus-visible .c-icon { transform: rotate(-10deg) scale(1.08); background: rgba(255, 255, 255, .95); }
+
+.c-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.c-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #a89d94; transition: color .4s; }
+.c-value { font-size: 1.06rem; font-weight: 600; color: #fff; overflow-wrap: anywhere; }
+.c-link:hover .c-label, .c-link:focus-visible .c-label { color: rgba(255, 255, 255, .8); }
+
+.c-arrow {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    display: grid; place-items: center;
+    font-size: .8rem;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: border-color .4s, background .4s;
+}
+.c-arrow i { transition: transform .45s var(--ease); }
+.c-link:hover .c-arrow, .c-link:focus-visible .c-arrow { background: rgba(255, 255, 255, .18); border-color: transparent; }
+.c-link:hover .c-arrow i, .c-link:focus-visible .c-arrow i { animation: arrow-swap .5s var(--ease); transform: rotate(-45deg); }
+@keyframes arrow-swap {
+    0%   { transform: translateX(0); }
+    45%  { transform: translateX(140%); }
+    46%  { transform: translateX(-140%); }
+    100% { transform: rotate(-45deg); }
+}
+
+.c-location {
+    display: flex; align-items: center; gap: .55rem;
+    margin-top: .6rem;
+    padding-left: .3rem;
+    font-size: .92rem;
+    color: #d6ccc3;
+}
+.c-location i { color: var(--accent-2); }
+.c-location span { padding: .15rem .55rem; font-size: .74rem; font-weight: 600; color: #a89d94; border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; }
+
+/* staggered slide-in when the contact card scrolls into view */
+.js .c-link, .js .c-location {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .7s var(--ease), transform .8s var(--ease), border-color .4s, box-shadow .5s;
+    transition-delay: calc(var(--n) * 110ms + 250ms);
+}
+.js .contact-card.is-visible .c-link,
+.js .contact-card.is-visible .c-location { opacity: 1; transform: none; }
+.js .contact-card.is-visible .c-link:hover,
+.js .contact-card.is-visible .c-link:focus-visible { transform: translateX(6px); transition-delay: 0s; }
+
+/* soft pulse on the email card so the main action stands out */
+.c-link:first-child .c-icon { animation: soft-ring 2.8s ease-out infinite; }
+@keyframes soft-ring {
+    0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 45%, transparent); }
+    100% { box-shadow: 0 0 0 14px transparent; }
+}
+
+/* remove the default click outline; keep a clear ring for keyboard users */
+.contact-card a:focus { outline: none; }
+.contact-mail:focus-visible { box-shadow: 0 0 0 3px #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+    .js .c-link, .js .c-location { opacity: 1; transform: none; }
+    .c-link:first-child .c-icon { animation: none; }
+}
+@media (max-width: 560px) {
+    .c-link { gap: .8rem; padding: .85rem .9rem; border-radius: 16px; }
+    .c-icon { width: 40px; height: 40px; font-size: 1rem; border-radius: 12px; }
+    .c-arrow { width: 32px; height: 32px; }
+    .c-value { font-size: .95rem; overflow-wrap: normal; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .c-location { flex-wrap: wrap; }
 }

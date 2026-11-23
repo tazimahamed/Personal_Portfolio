@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=13">
+<link rel="stylesheet" href="style/portfolio.css?v=14">
 </head>
 
 <body>
@@ -509,62 +509,32 @@
                     help with, I'd be glad to hear from you.
                 </p>
 
-                <div class="open-to">
-                    <p class="open-label"><span class="live-dot"></span> Open to</p>
-                    <ul>
-                        <li>Internships</li>
-                        <li>Junior ML / AI roles</li>
-                        <li>Software engineering roles</li>
-                        <li>Research collaboration</li>
-                    </ul>
-                </div>
-
-                <div class="contact-actions">
-                    <a href="mailto:mtazim.j@gmail.com?subject=Hello%20Tazim" class="contact-mail"><i class="fas fa-envelope"></i> Email me</a>
-                    <button type="button" class="copy-email" data-email="mtazim.j@gmail.com" aria-live="polite">
-                        <i class="far fa-copy"></i><span>Copy email</span>
-                    </button>
-                    <button type="button" class="contact-cv" onclick="downloadResume()"><i class="fas fa-arrow-down"></i> Download CV</button>
-                </div>
-                <p class="contact-note">Email is the fastest way to reach me.</p>
+                <a href="mailto:mtazim.j@gmail.com?subject=Hello%20Tazim" class="contact-mail"><i class="fas fa-envelope"></i> Email me</a>
             </div>
 
-            <ul class="contact-list">
-                <li>
-                    <a href="mailto:mtazim.j@gmail.com">
-                        <span class="cl-label">Email</span>
-                        <span class="cl-value">mtazim.j@gmail.com</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="tel:+8801703625500">
-                        <span class="cl-label">Phone</span>
-                        <span class="cl-value">+880 1703 625500</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/mdtazimahamed" target="_blank">
-                        <span class="cl-label">LinkedIn</span>
-                        <span class="cl-value">in/mdtazimahamed</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/tazimahamed" target="_blank">
-                        <span class="cl-label">GitHub</span>
-                        <span class="cl-value">tazimahamed</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <span class="cl-static">
-                        <span class="cl-label">Based in</span>
-                        <span class="cl-value">Dhaka, Bangladesh <small>GMT+6</small></span>
-                    </span>
-                </li>
-            </ul>
+            <div class="c-links">
+                <a class="c-link" style="--n:0; --brand:#ea4335" href="mailto:mtazim.j@gmail.com?subject=Hello%20Tazim">
+                    <span class="c-icon"><i class="fas fa-envelope"></i></span>
+                    <span class="c-text"><span class="c-label">Email</span><span class="c-value">mtazim.j@gmail.com</span></span>
+                    <span class="c-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="c-link" style="--n:1; --brand:#22c55e" href="tel:+8801703625500">
+                    <span class="c-icon"><i class="fas fa-phone"></i></span>
+                    <span class="c-text"><span class="c-label">Phone</span><span class="c-value">+880 1703 625500</span></span>
+                    <span class="c-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="c-link" style="--n:2; --brand:#0a66c2" href="https://www.linkedin.com/in/mdtazimahamed" target="_blank" rel="noopener">
+                    <span class="c-icon"><i class="fab fa-linkedin-in"></i></span>
+                    <span class="c-text"><span class="c-label">LinkedIn</span><span class="c-value">in/mdtazimahamed</span></span>
+                    <span class="c-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a class="c-link" style="--n:3; --brand:#6e5494" href="https://github.com/tazimahamed" target="_blank" rel="noopener">
+                    <span class="c-icon"><i class="fab fa-github"></i></span>
+                    <span class="c-text"><span class="c-label">GitHub</span><span class="c-value">tazimahamed</span></span>
+                    <span class="c-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <p class="c-location" style="--n:4"><i class="fas fa-location-dot"></i> Based in Dhaka, Bangladesh <span>GMT+6</span></p>
+            </div>
         </div>
     </div>
 </section>
@@ -578,6 +548,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=13"></script>
+<script src="portfolio.js?v=14"></script>
 </body>
 </html>
