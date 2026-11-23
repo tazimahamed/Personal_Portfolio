@@ -1246,3 +1246,50 @@ html:not(.js) .ah-scribble path { stroke-dashoffset: 0; }
 @media (prefers-reduced-motion: reduce) {
     .j-story { filter: none; transform: none; }
 }
+/* =========================================================
+   CONTACT — refined
+   ========================================================= */
+.contact-text { max-width: 470px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.8rem; }
+
+.open-to { margin-bottom: 2rem; }
+.open-label {
+    display: inline-flex; align-items: center; gap: .55rem;
+    margin-bottom: .8rem;
+    font-size: .76rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: #a89d94;
+}
+.open-to ul { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; }
+.open-to li {
+    padding: .4rem .9rem;
+    font-size: .86rem; font-weight: 600;
+    color: #f1e7dc;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 999px;
+}
+
+.contact-actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+
+.copy-email, .contact-cv {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: .95rem 1.4rem;
+    font-size: .95rem; font-weight: 600;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .3s, border-color .3s, color .3s, transform .3s var(--ease);
+}
+.copy-email:hover, .contact-cv:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .5); transform: translateY(-2px); }
+.copy-email.copied { color: #1a1614; background: #b7f0c8; border-color: #b7f0c8; }
+.copy-email i, .contact-cv i { font-size: .85rem; }
+
+.contact-note { margin-top: 1.1rem; font-size: .86rem; color: #a89d94; }
+
+.cl-value small { margin-left: .4rem; font-size: .78rem; font-weight: 500; color: #a89d94; }
+
+@media (max-width: 560px) {
+    .contact-actions > * { flex: 1 1 100%; justify-content: center; }
+}

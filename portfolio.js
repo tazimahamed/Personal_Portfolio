@@ -111,6 +111,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.6 });
     document.querySelectorAll(".stat-num").forEach(el => countObserver.observe(el));
 
+    /* Copy email with visible confirmation */
+    document.querySelectorAll(".copy-email").forEach(btn => {
+        const label = btn.querySelector("span");
+        const icon = btn.querySelector("i");
+        btn.addEventListener("click", async () => {
+            const email = btn.dataset.email;
+            let ok = false;
+            try { await navigator.clipboard.writeText(email); ok = true; }
+            catch {
+                const t = document.createElement("textarea");
+                t.value = email; t.style.position = "fixed"; t.style.opacity = "0";
+                document.body.appendChild(t); t.select();
+                try { ok = document.execCommand("copy"); } catch { ok = false; }
+                t.remove();
+            }
+            btn.classList.toggle("copied", ok);
+            label.textContent = ok ? "Copied!" : email;
+            icon.className = ok ? "fas fa-check" : "far fa-copy";
+            clearTimeout(btn._t);
+            btn._t = setTimeout(() => {
+                btn.classList.remove("copied");
+                label.textContent = "Copy email";
+                icon.className = "far fa-copy";
+            }, 2200);
+        });
+    });
+
     /* Journey: click a milestone to open its details */
     document.querySelectorAll(".j-item").forEach(item => {
         const toggle = () => {

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/portfolio.css?v=12">
+<link rel="stylesheet" href="style/portfolio.css?v=13">
 </head>
 
 <body>
@@ -502,9 +502,31 @@
         <div class="contact-card reveal">
             <div class="contact-left">
                 <p class="eyebrow light">Contact</p>
-                <h2 class="contact-title">Let's build<br>something <em>together.</em></h2>
-                <p class="contact-text">I'm open to internships, research collaborations and junior roles in Machine Learning and software engineering. The fastest way to reach me is email.</p>
-                <a href="mailto:mtazim.j@gmail.com" class="contact-mail"><i class="fas fa-envelope"></i> Say hello</a>
+                <h2 class="contact-title">Let's work<br><em>together.</em></h2>
+                <p class="contact-text">
+                    I'm looking for opportunities to grow as a machine learning and software engineer.
+                    If you're hiring, running a research project, or building something you think I could
+                    help with, I'd be glad to hear from you.
+                </p>
+
+                <div class="open-to">
+                    <p class="open-label"><span class="live-dot"></span> Open to</p>
+                    <ul>
+                        <li>Internships</li>
+                        <li>Junior ML / AI roles</li>
+                        <li>Software engineering roles</li>
+                        <li>Research collaboration</li>
+                    </ul>
+                </div>
+
+                <div class="contact-actions">
+                    <a href="mailto:mtazim.j@gmail.com?subject=Hello%20Tazim" class="contact-mail"><i class="fas fa-envelope"></i> Email me</a>
+                    <button type="button" class="copy-email" data-email="mtazim.j@gmail.com" aria-live="polite">
+                        <i class="far fa-copy"></i><span>Copy email</span>
+                    </button>
+                    <button type="button" class="contact-cv" onclick="downloadResume()"><i class="fas fa-arrow-down"></i> Download CV</button>
+                </div>
+                <p class="contact-note">Email is the fastest way to reach me.</p>
             </div>
 
             <ul class="contact-list">
@@ -539,7 +561,7 @@
                 <li>
                     <span class="cl-static">
                         <span class="cl-label">Based in</span>
-                        <span class="cl-value">Dhaka, Bangladesh</span>
+                        <span class="cl-value">Dhaka, Bangladesh <small>GMT+6</small></span>
                     </span>
                 </li>
             </ul>
@@ -556,6 +578,6 @@
     </div>
 </footer>
 
-<script src="portfolio.js?v=12"></script>
+<script src="portfolio.js?v=13"></script>
 </body>
 </html>
