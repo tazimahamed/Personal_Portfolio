@@ -4,29 +4,29 @@
    ========================================================= */
 
 :root {
-    --bg: #f2efe9;
-    --bg-2: #e9e5dc;
-    --paper: #fbfaf7;
-    --ink: #111114;
-    --ink-2: #2a2a33;
-    --muted: #5d5d6a;
-    --faint: #8a8a96;
-    --line: #ddd8cd;
+    --bg: #f5f1ea;
+    --bg-2: #ece5d8;
+    --paper: #fffdf9;
+    --ink: #1a1614;
+    --ink-2: #3a332e;
+    --muted: #6b615a;
+    --faint: #9a8f86;
+    --line: #e6ddcf;
 
-    --accent: #e5432b;
-    --accent-2: #ff6a3d;
+    --accent: #e4502f;
+    --accent-2: #f59e42;
     --accent-soft: rgba(229, 67, 43, 0.09);
     --gold: #e5432b;
 
-    --navy: #111111;
-    --navy-2: #1a1a1a;
+    --navy: #1a1614;
+    --navy-2: #241f1c;
     --navy-line: rgba(255, 255, 255, 0.1);
 
     --radius: 22px;
     --radius-sm: 14px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --shadow-sm: 0 1px 2px rgba(17, 17, 20, 0.04), 0 6px 18px -8px rgba(17, 17, 20, 0.12);
-    --shadow: 0 2px 6px rgba(17, 17, 20, 0.05), 0 26px 50px -22px rgba(17, 17, 20, 0.28);
+    --shadow-sm: 0 1px 2px rgba(40, 28, 20, 0.04), 0 6px 18px -8px rgba(40, 28, 20, 0.12);
+    --shadow: 0 2px 6px rgba(40, 28, 20, 0.05), 0 26px 50px -22px rgba(40, 28, 20, 0.28);
 
     --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --serif: 'Instrument Serif', Georgia, serif;
@@ -430,7 +430,7 @@ nav.scrolled {
    JOURNEY
    ========================================================= */
 .journey {
-    color: #ececec;
+    color: #f1ebe4;
     background:
         radial-gradient(800px 500px at 0% 0%, rgba(229, 67, 43, .22), transparent 60%),
         radial-gradient(700px 500px at 100% 100%, rgba(229, 67, 43, .18), transparent 60%),
@@ -453,7 +453,7 @@ nav.scrolled {
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.06em;
-    background: linear-gradient(180deg, #ffffff 40%, #bdbdbd 100%);
+    background: linear-gradient(180deg, #fffaf4 45%, #f7a86e 105%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -494,8 +494,8 @@ nav.scrolled {
 .j-tag.gold { color: #ff8a6b; background: rgba(229, 67, 43, .15); }
 
 .j-item h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; color: #fff; margin-bottom: .3rem; }
-.j-meta { font-size: .88rem; color: #9a9a9a; margin-bottom: .8rem; }
-.j-item p:not(.j-meta) { color: #cbcbcb; font-size: .96rem; }
+.j-meta { font-size: .88rem; color: #a89d94; margin-bottom: .8rem; }
+.j-item p:not(.j-meta) { color: #d6ccc3; font-size: .96rem; }
 
 .j-badge {
     display: inline-block;
@@ -510,7 +510,7 @@ nav.scrolled {
 /* =========================================================
    TOP PICKS
    ========================================================= */
-.picks { display: flex; flex-direction: column; gap: 5rem; padding-top: 2rem; }
+.picks { display: flex; flex-direction: column; gap: 2.2rem; }
 
 .pick {
     position: relative;
@@ -529,19 +529,17 @@ nav.scrolled {
 .pick.reverse .pick-media { order: 2; }
 
 .pick-num {
-    position: absolute;
-    top: -3.3rem; right: 1.5rem;
-    font-size: clamp(4rem, 8vw, 6.4rem);
+    display: block;
+    margin-bottom: .9rem;
+    font-size: clamp(3.2rem, 5vw, 4.4rem);
     font-weight: 900;
-    line-height: 1;
+    line-height: .9;
     letter-spacing: -0.06em;
     color: transparent;
-    -webkit-text-stroke: 2px rgba(229, 67, 43, .35);
-    pointer-events: none;
-    transition: color .5s, -webkit-text-stroke-color .5s;
+    -webkit-text-stroke: 1.5px var(--accent);
+    transition: color .5s var(--ease);
 }
-.pick.reverse .pick-num { right: auto; left: 1.5rem; }
-.pick:hover .pick-num { color: rgba(229, 67, 43, .12); -webkit-text-stroke-color: var(--accent); }
+.pick:hover .pick-num { color: var(--accent); }
 
 .pick-media {
     position: relative;
@@ -613,7 +611,7 @@ nav.scrolled {
 .mini-link:hover i { transform: translateX(4px); }
 
 /* Animated traffic light card */
-.mini-graphic { display: grid; place-items: center; background: linear-gradient(135deg, #1c1c1c, #111111); }
+.mini-graphic { display: grid; place-items: center; background: linear-gradient(135deg, #2a2420, #1a1614); }
 .traffic { display: flex; flex-direction: column; gap: 10px; padding: 14px 12px; background: #0a0a0a; border-radius: 16px; box-shadow: inset 0 0 0 2px #2e2e2e; }
 .traffic span { width: 26px; height: 26px; border-radius: 50%; background: #262626; animation: light 6s infinite; }
 .t-red   { --c: #ef4444; animation-delay: 0s !important; }
@@ -659,7 +657,7 @@ nav.scrolled {
     position: relative;
     overflow: hidden;
     color: #fff;
-    background: linear-gradient(150deg, #1c1c1c 0%, var(--navy) 100%);
+    background: linear-gradient(150deg, #2a2420 0%, var(--navy) 100%);
 }
 .award::after {
     content: '';
@@ -679,7 +677,7 @@ nav.scrolled {
 }
 .award .pick-kicker { color: #ff8a6b; }
 .award h3 { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: .6rem; }
-.award p:not(.pick-kicker) { color: #cbcbcb; }
+.award p:not(.pick-kicker) { color: #d6ccc3; }
 
 /* =========================================================
    SKILLS
@@ -753,7 +751,7 @@ nav.scrolled {
 }
 .contact-title em { color: var(--accent); }
 
-.contact-text { max-width: 440px; color: #cbcbcb; font-size: 1.02rem; margin-bottom: 2rem; }
+.contact-text { max-width: 440px; color: #d6ccc3; font-size: 1.02rem; margin-bottom: 2rem; }
 
 .contact-mail {
     display: inline-flex; align-items: center; gap: .7rem;
@@ -778,7 +776,7 @@ nav.scrolled {
     padding: 1.15rem .2rem;
 }
 
-.cl-label { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8a; }
+.cl-label { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #9a8f86; }
 .cl-value { font-size: 1.05rem; font-weight: 600; color: #fff; word-break: break-word; transition: color .3s, transform .4s var(--ease); }
 
 .contact-list a i {
@@ -844,7 +842,6 @@ footer { padding: 2.2rem 0; }
     .about-grid, .journey-grid, .research-grid { grid-template-columns: 1fr; }
     .pick, .pick.reverse { grid-template-columns: 1fr; gap: 1.6rem; padding: 1.4rem; }
     .pick.reverse .pick-media { order: 0; }
-    .pick-num, .pick.reverse .pick-num { top: -2.6rem; right: 1rem; left: auto; }
 
     .year-display { display: none; }
     .j-item { opacity: 1; transform: none; }
@@ -927,9 +924,9 @@ footer { padding: 2.2rem 0; }
 
 /* University card stands out in black */
 .edu-card.featured { color: #fff; background: var(--navy); border-color: var(--navy); }
-.edu-card.featured .edu-school, .edu-card.featured .edu-course { color: #cbcbcb; }
+.edu-card.featured .edu-school, .edu-card.featured .edu-course { color: #d6ccc3; }
 .edu-card.featured .edu-course strong { color: #fff; }
-.edu-card.featured .edu-years span { color: #9a9a9a; }
+.edu-card.featured .edu-years span { color: #a89d94; }
 .edu-card.featured .edu-score { background: var(--accent); }
 .edu-card.featured .edu-score span { color: rgba(255, 255, 255, .8); }
 
@@ -967,3 +964,53 @@ footer { padding: 2.2rem 0; }
     transition: gap .3s var(--ease), color .3s;
 }
 .award-link:hover { gap: .8rem; color: var(--accent); }
+
+/* =========================================================
+   PALETTE POLISH
+   ========================================================= */
+/* Warm gradient accent on key surfaces */
+.scroll-progress, .year-bar span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.role-tag { box-shadow: 8px 8px 0 var(--accent-2); }
+.btn-dark::before { background: linear-gradient(120deg, var(--accent), var(--accent-2)); }
+.contact-mail { background: linear-gradient(120deg, var(--accent), #ec6a35); }
+.contact-mail:hover { background: linear-gradient(120deg, #ef5a37, var(--accent-2)); }
+.big-heading em, .contact-title em { background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em; }
+
+/* Soft warm tint behind the hero instead of flat cream */
+.hero { background: radial-gradient(900px 600px at 85% 10%, rgba(245, 158, 66, .14), transparent 60%), radial-gradient(700px 500px at 0% 100%, rgba(228, 80, 47, .07), transparent 60%); }
+.hero::before, .hero::after { display: none; }
+
+/* Tags and chips pick up the accent */
+.tech li { background: rgba(228, 80, 47, .06); border-color: rgba(228, 80, 47, .16); color: #7a2e1c; }
+.chips span { background: var(--bg); border: 1px solid var(--line); }
+.chips span:hover { background: var(--accent); border-color: var(--accent); }
+
+/* Dark sections: warm espresso with an ember glow */
+.journey {
+    background:
+        radial-gradient(800px 500px at 0% 0%, rgba(228, 80, 47, .18), transparent 60%),
+        radial-gradient(700px 500px at 100% 100%, rgba(245, 158, 66, .12), transparent 60%),
+        var(--navy);
+}
+.j-tag { color: #ffcfb8; background: rgba(228, 80, 47, .18); }
+.j-tag.gold { color: #ffd9a8; background: rgba(245, 158, 66, .18); }
+.j-item.current { border-color: rgba(245, 158, 66, .4); }
+.eyebrow.light { color: #f7a86e; }
+
+.marquee { background: var(--navy); }
+.marquee i { color: var(--accent-2); }
+
+.award { background: linear-gradient(150deg, #2a2420 0%, var(--navy) 100%); }
+.award-icon { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+.award .pick-kicker { color: #f7a86e; }
+
+.edu-card.featured .edu-score { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+
+.research { background: var(--bg-2); }
+.pick-kicker { color: var(--accent); }
+.video-frame {
+    background:
+        radial-gradient(circle at 30% 30%, rgba(245, 158, 66, .45), transparent 55%),
+        radial-gradient(circle at 75% 75%, rgba(228, 80, 47, .6), transparent 55%),
+        var(--navy);
+}
