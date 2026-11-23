@@ -1,8 +1,8 @@
-function downloadResume(){
+﻿function downloadResume(){
 
 const link=document.createElement("a");
 
-link.href="Tazim_Ahamed.pdf";
+link.href="images/Tazim_Ahamed.pdf";
 
 link.download="Tazim_Ahamed_Resume.pdf";
 
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     changeTheme();
 });
 
-// স্ক্রল করলে কন্টাক্ট আইটেমগুলো একটা একটা করে ভেসে উঠবে
+// à¦¸à§à¦•à§à¦°à¦² à¦•à¦°à¦²à§‡ à¦•à¦¨à§à¦Ÿà¦¾à¦•à§à¦Ÿ à¦†à¦‡à¦Ÿà§‡à¦®à¦—à§à¦²à§‹ à¦à¦•à¦Ÿà¦¾ à¦à¦•à¦Ÿà¦¾ à¦•à¦°à§‡ à¦­à§‡à¦¸à§‡ à¦‰à¦ à¦¬à§‡
 const observerOptions = { threshold: 0.2 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
