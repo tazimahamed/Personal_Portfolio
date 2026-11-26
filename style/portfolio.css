@@ -2103,3 +2103,13 @@ html.lenis, html.lenis body { height: auto; }
     .ring-fill { transition: none; }
     .js .edu-ring:not(.ring-in) .ring-fill { stroke-dashoffset: calc(263.9 * (1 - var(--p))); }
 }
+/* ===== Big screens: scale the whole layout with the screen width ===== */
+.container { max-width: 75rem; }
+@media (min-width: 1500px) {
+    /* 16px at 1500px wide, ~19px at 1920px, ~24px at 2560px */
+    html { font-size: calc(16px + (100vw - 1500px) * 0.0078); }
+    .container { max-width: 78rem; }
+}
+@media (min-width: 3200px) {
+    html { font-size: 29px; }
+}
