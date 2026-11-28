@@ -2,7 +2,7 @@
 
 function downloadResume() {
     const link = document.createElement("a");
-    link.href = "images/Md_Tazim_Ahamed_Resume.pdf?v=4";
+    link.href = "images/Md_Tazim_Ahamed_Resume.pdf?v=5";
     link.download = "Md_Tazim_Ahamed_Resume.pdf";
     document.body.appendChild(link);
     link.click();

@@ -1,0 +1,199 @@
+﻿% =====================================================================
+%  Md. Tazim Ahamed — Resume (CV B: two pages, full project history)
+%  Use for research contacts and applications that want more detail.
+%  Compiles with pdfLaTeX (Overleaf default). No extra font files.
+% =====================================================================
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[top=0.6in, bottom=0.6in, left=0.7in, right=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=1.04]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{textcomp}
+\usepackage{fontawesome5}
+
+% ---------- Icons ----------
+\newcommand{\iconEnvelope}{\faEnvelope}
+\newcommand{\iconPhone}{\faPhone}
+\newcommand{\iconGithub}{\faGithub}
+\newcommand{\iconLinkedin}{\faLinkedin}
+\newcommand{\iconGlobe}{\faGlobe}
+
+% ---------- Colors ----------
+\definecolor{headingpurple}{RGB}{45,16,104}
+\definecolor{linkblue}{RGB}{55,30,119}
+
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue,
+            pdftitle={Md. Tazim Ahamed - Resume}, pdfauthor={Md. Tazim Ahamed}}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\fontsize{13.5}{16}\selectfont\bfseries\color{headingpurple}}
+  {}{0em}{}
+  [\vspace{4pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+% ---------- Entries ----------
+\newcommand{\resumeEntry}[3]{%
+  \noindent\textbf{#1} \hfill #2\\
+  {\textit{#3}}
+}
+% Project title is clickable when a link is given, but looks like plain bold text
+\newcommand{\projectEntry}[4]{%
+  \noindent\if\relax\detokenize{#2}\relax\textbf{#1}\else{\hypersetup{urlcolor=black}\href{#2}{\textbf{#1}}}\fi \hfill #3\\
+  {\textit{#4}}
+}
+% Keeps a whole entry together so it never splits across two pages
+\newenvironment{keep}
+  {\par\noindent\begin{minipage}{\linewidth}\setlength{\parskip}{0pt}}
+  {\end{minipage}\par\vspace{5pt}}
+
+\setlist[itemize]{leftmargin=1.4em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+\pagestyle{empty}
+\raggedbottom
+\setlength{\parindent}{0pt}
+
+% words that should never be split across lines
+\setlength{\emergencystretch}{3em}   % stretch spaces instead of overflowing the margin
+\hyphenation{cyclones heatwaves Processing Networks TreeSHAP follow-ups Bangladesh InformatiX underlying scenarios}
+
+\begin{document}
+
+% ---------------- Header ----------------
+\begin{center}
+    {\huge \textbf{Md. Tazim Ahamed}}\\[6pt]
+    {\color{linkblue}\iconEnvelope}\ \href{mailto:mtazim.j@gmail.com}{mtazim.j@gmail.com} \quad --- \quad
+    {\color{linkblue}\iconPhone}\ \href{tel:+8801703625500}{+8801703625500}\\[4pt]
+    {\color{linkblue}\iconGithub}\ \href{https://github.com/tazimahamed}{github.com/tazimahamed} \quad --- \quad
+    {\color{linkblue}\iconLinkedin}\ \href{https://www.linkedin.com/in/mdtazimahamed}{linkedin.com/in/mdtazimahamed}\\[4pt]
+    {\color{linkblue}\iconGlobe}\ \href{https://tazimahamed.github.io/Personal_Portfolio/}{tazimahamed.github.io/Personal\_Portfolio}
+\end{center}
+
+% ---------------- Profile ----------------
+\section*{Profile}
+Computer Science \& Engineering undergraduate at AIUB (CGPA 3.74) and Software Intern at Square InformatiX Ltd.
+I build end-to-end machine learning systems, from data pipelines and models to deployed applications, including
+a flood early warning system covering 544 upazilas, a sales forecasting platform, and a Bengali AI tutor. Both
+AI projects reached competition finals: the International AI Builders Congress 2026 and The Infinity AI BuildFest 2026.
+
+% ---------------- Experience ----------------
+\section*{Experience}
+\begin{keep}
+\resumeEntry{Software Intern --- Square InformatiX Ltd. (Software Department, Dhaka)}{Oct 2026 -- Present}{Python, FastAPI, LightGBM, Pandas, SQLite, JavaScript, Chart.js, Ollama}
+\begin{itemize}
+    \item Developed \textbf{Square Sales AI}, a data-driven sales forecasting and planning system supporting product-level target setting and inventory decisions.
+    \item Built a sales forecasting pipeline covering \textbf{392 products across 10 regions} and 25 months of sales data, validating and aggregating CSV and Excel records.
+    \item In a two-fold backtest, \textbf{LightGBM} achieved \textbf{34\% lower unit WAPE} than a seasonal naïve baseline (70.0\% vs.\ 105.4\%).
+    \item Developed interactive dashboards for sales forecasts, target allocation, regional product performance, and stock replenishment planning.
+    \item Integrated a local AI assistant using \textbf{Ollama} to support sales-related queries and provide access to underlying business data.
+\end{itemize}
+\end{keep}
+
+% ---------------- Projects ----------------
+\section*{Projects}
+
+\begin{keep}
+\projectEntry{FloodShield BD --- AI Flood Early Warning System Using LightGBM \& Sentinel-1}{https://github.com/tazimahamed/floodshield-bd}{2026}{Python, FastAPI, LightGBM, Google Earth Engine, PostgreSQL/PostGIS, Docker, Telegram Bot API}
+\begin{itemize}
+    \item Built a \textbf{15-day flood forecast for 544 upazilas}, refreshed every 6 hours, using a river drainage graph that includes upstream basins in India, Nepal, Bhutan and China.
+    \item Trained LightGBM on our own Sentinel-1 radar flood labels (2017--2026), achieving \textbf{AUC 0.83} in leave-one-year-out testing, with TreeSHAP reasons for each upazila.
+    \item Deployed a \href{https://floodshieldbd.duckdns.org/}{live website} and a Bangla/English Telegram bot with voice alerts for floods, heatwaves and cyclones.
+    \item Selected for the \textbf{final of the International AI Builders Congress 2026}.
+\end{itemize}
+\end{keep}
+
+\begin{keep}
+\projectEntry{EduTutor BD --- Bengali AI Tutor Using RAG \& Llama 3.3 70B}{https://edu-tutor-one.vercel.app/eduhome.html}{2025 -- 2026}{Python, FastAPI, Llama 3.3 70B (Groq), ChromaDB, Gemini Embedding API, PHP, MySQL}
+\begin{itemize}
+    \item Built a full-stack Bengali AI tutoring platform for SSC students using RAG over NCTB textbooks (\textbf{2,768 chunks} in ChromaDB) and Bloom's Taxonomy-based adaptive questioning (L1--L6).
+    \item Integrated Llama 3.3 70B via Groq API to generate and evaluate questions with Bengali feedback and follow-ups, achieving sub-2-second response time.
+    \item Built PHP/MySQL student and admin dashboards with progress analytics; selected for the \textbf{final round of The Infinity AI BuildFest 2026}.
+\end{itemize}
+\end{keep}
+
+\begin{keep}
+\projectEntry{Beyond the Menu --- Tangible RFID Ordering \& Delivery Robot}{https://github.com/tazimahamed/HCI-project}{2025 -- 2026}{ESP32, C++ (Arduino), Python, MQTT (Mosquitto), Tkinter, RC522 RFID, TB6612FNG}
+\begin{itemize}
+    \item Built a restaurant ordering system where diners order by tapping RFID cards, removing the need for an app, a touchscreen, or a waiter.
+    \item Programmed two ESP32 terminals (RC522 reader, 20$\times$4 LCD) and an ESP32 delivery car (TB6612FNG, DC motors), linked over MQTT to a Python/Tkinter kitchen dashboard pushing five live order statuses.
+    \item Added reliability features: retained status for reconnecting devices, last-will presence detection, an \mbox{8-second} kitchen watchdog, and a 1.5-second repeat-tap guard.
+\end{itemize}
+\end{keep}
+
+\begin{keep}
+\projectEntry{AgroLink --- Online Agricultural Marketplace}{https://github.com/HasiburRahman404/AgroLink}{2024 -- 2025}{HTML, CSS, JavaScript, PHP, SQL, AJAX, JSON}
+\begin{itemize}
+    \item Developed a web platform connecting customers with farmers, with product catalog, shopping cart, secure order management, and reviews and ratings using AJAX and JSON for live updates.
+\end{itemize}
+\end{keep}
+
+\begin{keep}
+\projectEntry{Solar-Powered Microbial Soil Health Monitor --- IoT}{}{2024 -- 2025}{ESP8266, Arduino, ThingSpeak, Air/Soil Temperature, Humidity and Soil Moisture Sensors}
+\begin{itemize}
+    \item Built an IoT system that monitors soil and environmental conditions, logs real-time data to ThingSpeak, and sends automated soil-health alerts.
+\end{itemize}
+\end{keep}
+
+\textbf{Other projects:}
+Railway Station Scene (OpenGL, C++) \textperiodcentered{}
+Taylor Online Dress Store (Java, C\#, SQL) \textperiodcentered{}
+4-Way Traffic Signal Controller (555 Timer, 4017 Counter, 74LS Logic Gates).
+
+% ---------------- Research ----------------
+\section*{Research}
+\begin{keep}
+\resumeEntry{Traffic Sign Detection in Low Light: Improved LLE-STD Using YOLOv8m}{Ready for Submission}{Kaggle, NVIDIA T4 GPU, YOLOv8m, Zero-DCE++, CNTSSS Dataset}
+\begin{itemize}
+    \item Integrated Zero-DCE++ image enhancement with YOLOv8m to improve traffic sign detection in night-time conditions.
+    \item Experimented on the CNTSSS dataset (\textbf{4,062 night-time images}) over 46 epochs, evaluating precision, recall, mAP50, mAP50-95 and F1.
+    \item Compared detection performance against YOLO-LLTS and LLE-STD on the CNTSSS dataset.
+\end{itemize}
+\end{keep}
+
+% ---------------- Education ----------------
+\section*{Education}
+\resumeEntry{American International University-Bangladesh (AIUB)}{2023 -- Present}{}
+B.Sc. in Computer Science and Engineering \hfill \textbf{CGPA: 3.74}\\
+\textbf{Relevant Coursework:} Machine Learning, Computer Vision and Pattern Recognition, Natural Language Processing, Image Processing, Statistics and Probability, Data Structures and Algorithms.
+
+\vspace{3pt}
+\textbf{Cantonment College Jashore} --- Higher Secondary Certificate (HSC) \hfill 2018 -- 2020 \quad \textbf{GPA: 5.00}\\
+\textbf{Dhanyakhola Secondary School} --- Secondary School Certificate (SSC) \hfill 2016 -- 2018 \quad \textbf{GPA: 5.00}
+
+% ---------------- Skills ----------------
+\section*{Technical Skills}
+{\renewcommand{\arraystretch}{1.3}%
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages:}         & Python, C, C++, Java, JavaScript, PHP, SQL, Dart \\
+\textbf{Machine Learning:}  & PyTorch, TensorFlow/Keras, scikit-learn, LightGBM, YOLOv8, OpenCV, MediaPipe \\
+\textbf{LLMs \& NLP:}       & RAG, Llama 3.3 70B (Groq), Ollama, ChromaDB, Gemini Embedding API \\
+\textbf{Data \& Backend:}   & FastAPI, Pandas, NumPy, Matplotlib, \mbox{TreeSHAP}, PostgreSQL/PostGIS, MySQL, SQLite, Docker, Google Earth Engine \\
+\textbf{Web \& IoT:}        & HTML, CSS, Tailwind CSS, Chart.js, ESP32, ESP8266, Arduino, MQTT \\
+\textbf{Tools:}             & Git, GitHub, VS Code, Google Colab, Kaggle, Tinkercad, Multisim \\
+\end{tabularx}}
+
+% ---------------- Awards ----------------
+\section*{Awards \& Achievements}
+
+\resumeEntry{Final --- International AI Builders Congress 2026}{}{with FloodShield BD, an AI flood early warning system}
+
+\resumeEntry{Final Round --- The Infinity AI BuildFest 2026}{}{CloudCamp Bangladesh $\times$ BRAC University \textperiodcentered{} with EduTutor BD}
+
+% ---------------- References ----------------
+\section*{References}
+\textbf{Tanvir Ahmed}\\
+Assistant Professor, Department of Computer Science\\
+Faculty of Science and Technology\\
+American International University-Bangladesh (AIUB)\\
+{\hypersetup{urlcolor=black}Email: \href{mailto:tanvir.ahmed@aiub.edu}{tanvir.ahmed@aiub.edu}}\\
+{\hypersetup{urlcolor=black}Profile: \href{https://www.aiub.edu/faculty-list/faculty-profile?q=tanvir.ahmed}{aiub.edu/faculty-list/faculty-profile?q=tanvir.ahmed}}
+
+\end{document}
